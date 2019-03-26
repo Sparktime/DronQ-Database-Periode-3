@@ -15,16 +15,16 @@ $Email = $_POST['Email'];
 $Telephone = $_POST['Telephone'];
 $Day_Of_Birth = $_POST['Day_Of_Birth'];
 $RegistrationDate = $_POST['RegistrationDate'];
-
+$oldEmail = $Email;
 // update record
 $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$Customer_Surname, $Customer_Firstname, $Address, $ZipCode, $City, $Country, $Email, $Telephone, $Day_Of_Birth, $RegistrationDate, $Customer_ID]);
 checkSQL($stmt);
 
-$sql = "INSERT INTO `CUSTOMER` (Email) VALUES(?)";
+$sql = "UPDATE `USER` SET Email = ? WHERE Email = ?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$email]);
+$stmt->execute([$Email, $oldEmail]);
 checkSQL($stmt);
 
 // return to list

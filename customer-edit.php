@@ -97,7 +97,7 @@ $row = $stmt->fetch(PDO::FETCH_OBJ);
                 <div class="row">
                     <label>
                         Email
-                        <input type="text" name="Email" value="<?= $row->Email ?>">
+                        <input type="text" readonly name="Email" value="<?= $row->Email ?>">
                     </label>
                 </div>
                 <div class="row">
