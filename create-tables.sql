@@ -32,7 +32,7 @@ CREATE TABLE `RESELLER` (
 CREATE TABLE `USER` (
 	`Email`  VARCHAR(40) PRIMARY KEY,
 	`PasswordHash` VARCHAR(256),
-    `Salt` INT,
+    `Salt` VARCHAR(256),
     `Level` INT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
@@ -48,12 +48,12 @@ CREATE TABLE `CUSTOMER` (
     `Email` VARCHAR(40),
     `Telephone` VARCHAR(40),
     `Day_Of_Birth` DATE,
-    `RegistrationDate` DATE,
+    `RegistrationDate` DATE
     
-    CONSTRAINT `FK_Email`
-    FOREIGN KEY(`Email`) REFERENCES `USER`(`Email`)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT
+--    CONSTRAINT `FK_Email`
+--    FOREIGN KEY(`Email`) REFERENCES `USER`(`Email`)
+--    ON UPDATE CASCADE
+--    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 

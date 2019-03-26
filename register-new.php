@@ -12,5 +12,5 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$email, $passwordhash]);
 checkSQL($stmt);
 
-header('location: product-list.php');
+header('location: login.php');
 
