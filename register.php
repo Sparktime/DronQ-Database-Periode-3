@@ -2,7 +2,7 @@
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Register</title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         
@@ -29,8 +29,8 @@
         </header>
     
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
-            <h1>Login</h1>
-            <form method="post" action="login_check.php">
+            <h1>Register</h1>
+            <form method="post" action="register-new.php">
                 <div class="form-group col-lg-3">
                     <label for="email">Email:</label>
                     <input type="text" class="form-control" placeholder="Enter Email" name="email">
