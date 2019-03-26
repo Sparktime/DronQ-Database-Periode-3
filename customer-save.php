@@ -22,6 +22,11 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$Customer_Surname, $Customer_Firstname, $Address, $ZipCode, $City, $Country, $Email, $Telephone, $Day_Of_Birth, $RegistrationDate, $Customer_ID]);
 checkSQL($stmt);
 
+$sql = "INSERT INTO `CUSTOMER` (Email) VALUES(?)";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$email]);
+checkSQL($stmt);
+
 // return to list
 if(isset($_SESSION['list'])) {
     header('location: ' . $_SESSION['list']);   
