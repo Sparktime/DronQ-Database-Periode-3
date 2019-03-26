@@ -12,12 +12,13 @@ if($user === FALSE) {
     unset($_SESSION['email']);
     header('location: login.php');
 } else {
-    $sql = "SELECT `Customer_ID` FROM `CUSTOMER` INNER JOIN `USER` ON `USER`.`Email` = `CUSTOMER`.`Email` WHERE `USER`.`Email` = ?";
+
+    
+$sql = "SELECT `Customer_ID` FROM `CUSTOMER` INNER JOIN `USER` ON `USER`.`Email` = `CUSTOMER`.`Email` WHERE `USER`.`Email` = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$email]);
 checkSQL($stmt);
-$customerid = $stmt->fetch(PDO::FETCH_OBJ);
-//    $customerid = 12;
-    $_SESSION['email'] = $email;
+$customerid = $stmt->fetch()[0];
+   $_SESSION['email'] = $email;
     header('location: customer-edit.php?Customer_ID='.$customerid);
 }
