@@ -1,5 +1,5 @@
 
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href = "database.php" class="navbar-brand">Home</a>
             </li>
@@ -19,10 +19,17 @@
                 <button type="button"
                  class="btn btn-danger navbar-btn" onclick="resetfunction()">Reset Database</button>
             </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a type="button" href="login.php" class="btn btn-success">Login</a>
+                <a href="register.php" class="btn btn-success">Register</a>
             </li>
-          </ul>
+            <p>" "</p>
+            <li class="nav-item">
+                <a href="login.php" class="btn btn-success navbar-btn">Login</a>
+            </li>
+            <p>" "</p>
+        </ul>
 
     
 

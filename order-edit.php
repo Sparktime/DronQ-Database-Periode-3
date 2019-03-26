@@ -54,10 +54,10 @@ $row = $stmt->fetch(PDO::FETCH_OBJ);
                  </div>
             </nav>
     
-      <div class="container">
+      <div class="container" style="margin-top:80px">
         <div class="row">
 			<div class="col-xl-10">
-                <h1>Order</h1>
+                <h1>Edit Order</h1>
                 <div class="row">
                     <label>Order ID
                         <input type="text" readonly name="Order ID" value="<?= $row->Order_ID ?>">

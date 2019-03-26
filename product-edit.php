@@ -55,10 +55,10 @@ $row = $stmt->fetch(PDO::FETCH_OBJ);
         </nav>
     
     <!-- Input -->
-      <div class="container">
+      <div class="container" style="margin-top:80px">
         <div class="row">
 			<div class="col-xl-10">
-                <h1>Product</h1>
+                <h1>Edit Product</h1>
                    <div class="row">
                     <label>Serial No
                         <input type="text" readonly name="Serial No" value="<?= $row->Serial_No ?>">
