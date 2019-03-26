@@ -30,13 +30,13 @@ $rs = $pdo->query($sql, PDO::FETCH_OBJ);
 
     <body>
         
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <?php require 'menu.inc.php'; ?>
             <a href = "order-new.php" title="add a record" class="btn btn-success navbar-btn">New Order</a>
         </nav>
         
-<div class="col-xl-12 mx-auto">
-        <h1>O</h1>
+<div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
+
         <h1>Orders</h1>
         <!-- show result set -->
         <table class="table">

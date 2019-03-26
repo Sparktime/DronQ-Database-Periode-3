@@ -19,7 +19,11 @@
                 <button type="button"
                  class="btn btn-danger navbar-btn" onclick="resetfunction()">Reset Database</button>
             </li>
+            <li class="nav-item">
+                <a type="button" href="login.php" class="btn btn-success">Login</a>
+            </li>
           </ul>
+
     
 
 <!-- Warning before reset -->

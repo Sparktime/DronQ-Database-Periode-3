@@ -32,8 +32,7 @@ $rs = $pdo->query($sql, PDO::FETCH_OBJ);
             <a href = "reseller-new.php" title="add a record" class="btn btn-success navbar-btn">New Reseller</a>
         </nav>
         
-        <div class="col-xl-12 mx-auto">
-        <h1>R</h1>
+        <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
         <h1>Resellers</h1>
         <!-- show result set -->
             <table class="table">

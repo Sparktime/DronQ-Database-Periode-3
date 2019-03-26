@@ -35,9 +35,8 @@ $rs = $pdo->query($sql, PDO::FETCH_OBJ);
             <a href = "product-new.php" title="add a record" class="btn btn-success navbar-btn">New Product</a>
         </nav>
         
-<div class="col-xl-12 mx-auto">
-        <h1>P</h1>
-        <h1>Product</h1>
+<div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
+        <h1>Products</h1>
         <!-- show result set -->
         <table class="table">
             <tr>
