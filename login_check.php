@@ -1,19 +1,24 @@
 <?php
 require 'db.php';
-$username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
-$passwordhash = md5($password . $username);
+$passwordhash = md5($password . $email);
 $sql = "SELECT * FROM `USER` WHERE `Email` = ? AND `PasswordHash` = ?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$username, $passwordhash]);
+$stmt->execute([$email, $passwordhash]);
 checkSQL($stmt);
 $user = $stmt->fetch(PDO::FETCH_OBJ);
 if($user === FALSE) {
-    unset($_SESSION['username']);
+    unset($_SESSION['email']);
     header('location: login.php');
 } else {
-    $_SESSION['username'] = $username;
-    header('location: customer-edit.php?_customerID=');
-}
 
-   
+    
+$sql = "SELECT `Customer_ID` FROM `CUSTOMER` INNER JOIN `USER` ON `USER`.`Email` = `CUSTOMER`.`Email` WHERE `USER`.`Email` = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$email]);
+checkSQL($stmt);
+$customerid = $stmt->fetch()[0];
+   $_SESSION['email'] = $email;
+    header('location: customer-edit.php?Customer_ID='.$customerid);
+}
