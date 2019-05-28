@@ -1,17 +1,19 @@
 <?php
 require 'db.php';
-
+require 'userController.php';
 // get url parameter
-$Customer_ID = $_GET['Customer_ID'];
+//$Customer_ID = $_GET['Customer_ID'];
+//
+//// get record
+//$sql = "SELECT * FROM `CUSTOMER` WHERE `Customer_ID` = ?";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute([$Customer_ID]);
+//checkSQL($stmt);
+//
+//$row = $stmt->fetch(PDO::FETCH_OBJ);
 
-// get record
-$sql = "SELECT * FROM `CUSTOMER` WHERE `Customer_ID` = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$Customer_ID]);
-checkSQL($stmt);
-
-$row = $stmt->fetch(PDO::FETCH_OBJ);
-
+$user = new userController($pdo);
+$row = $user->get($_GET['Customer_ID']);
 ?>
 
 
