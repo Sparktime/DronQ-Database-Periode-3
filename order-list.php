@@ -4,10 +4,14 @@ session_start();
 $_SESSION['list'] = 'order-list.php';
 
 include 'db.php';
+require 'cartController.php';
 
-// get result set
-$sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
-$rs = $pdo->query($sql, PDO::FETCH_OBJ);
+$list = new cartController($pdo);
+$rs = $list-> getAll();
+
+//// get result set
+//$sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
+//$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 ?>
 
 

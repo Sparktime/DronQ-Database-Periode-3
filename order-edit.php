@@ -1,16 +1,20 @@
 <?php
 require 'db.php';
+require 'cartController.php';
 
-// get url parameter
-$Order_ID = $_GET['Order_ID'];
+//// get url parameter
+//$Order_ID = $_GET['Order_ID'];
 
-// get record
-$sql = "SELECT * FROM `ORDER` WHERE `Order_ID` = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$Order_ID]);
-checkSQL($stmt);
+//// get record
+//$sql = "SELECT * FROM `ORDER` WHERE `Order_ID` = ?";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute([$Order_ID]);
+//checkSQL($stmt);
+//
+//$row = $stmt->fetch(PDO::FETCH_OBJ);
 
-$row = $stmt->fetch(PDO::FETCH_OBJ);
+$order = new cartController($pdo);
+$row = $order->get($_GET['Order_ID']);
 
 ?>
 

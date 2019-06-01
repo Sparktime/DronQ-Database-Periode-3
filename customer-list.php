@@ -4,10 +4,13 @@ session_start();
 $_SESSION['list'] = 'customer-list.php';
 
 include 'db.php';
+require 'userController.php';
 
+$list = new userController($pdo);
+$rs = $list-> getAll();
 // get result set
-$sql = "SELECT * FROM `CUSTOMER` ORDER BY `Customer_ID` DESC";
-$rs = $pdo->query($sql, PDO::FETCH_OBJ);
+//$sql = "SELECT * FROM `CUSTOMER` ORDER BY `Customer_ID` DESC";
+//$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 ?>
 
 
