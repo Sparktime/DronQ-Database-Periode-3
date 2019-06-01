@@ -1,5 +1,5 @@
 <?php
-// UTF-8 NΟ BOM 
+// UTF-8 NΟ BOM
 session_start();
 $_SESSION['list'] = 'order-list.php';
 
@@ -8,6 +8,10 @@ require 'cartController.php';
 
 $list = new cartController($pdo);
 $rs = $list-> getAll();
+
+
+
+?>
 
 //// get result set
 //$sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";

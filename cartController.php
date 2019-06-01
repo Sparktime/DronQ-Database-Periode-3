@@ -6,7 +6,7 @@ class cartController {
 
     public function __construct($db) {
 
-        $this->pdo = $db
+        $this->pdo = $db;
 
     }
 
@@ -33,7 +33,7 @@ class cartController {
         }
     }
 
-    public function save(){
+    public function save($id, $data){
         $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, Reseller_ID = ?, Customer_ID = ? WHERE Order_ID = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$data['price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['Reseller_ID'], $data['Customer_ID'], $id]);
