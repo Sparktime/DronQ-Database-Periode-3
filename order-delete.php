@@ -15,11 +15,12 @@ $Order_ID = $_GET['Order_ID'];
 //$stmt->execute([$Order_ID]);
 //checkSQL($stmt);
 
-$delete = new userController($pdo);
+$delete = new cartController($pdo);
+$delete->delete($_GET['Order_ID']);
 
-// return to list
-if(isset($_SESSION['list'])) {
-    header('location: ' . $_SESSION['list']);   
-} else {
-    header('location: .');
-}
+//// return to list
+//if(isset($_SESSION['list'])) {
+//    header('location: ' . $_SESSION['list']);
+//} else {
+//    header('location: .');
+//}

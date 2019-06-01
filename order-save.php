@@ -24,7 +24,8 @@ require 'cartController.php';
 //checkSQL($stmt);
 
 $save = new cartController($pdo);
-$save->save($_POST['Cart_ID'], $_POST);
+$save->save($_POST['Order_ID'], $_POST);
+
 
 //// return to list
 //if(isset($_SESSION['list'])) {

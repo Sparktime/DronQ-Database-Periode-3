@@ -97,10 +97,10 @@ $row = $order->get($_GET['Order_ID']);
                         <input type="text" name="Serial No" value="<?= $row->Serial_No ?>">
                     </label>
                 </div>
-                    <div class="row">
-                    <label>Reseller ID
-                        <input type="text" name="Reseller ID" value="<?= $row->Reseller_ID ?>">
-                    </label>
+<!--                    <div class="row">-->
+<!--                    <label>Reseller ID-->
+<!--                        <input type="text" name="Reseller ID" value="--><?//= $row->Reseller_ID ?><!--">-->
+<!--                    </label>-->
                 </div>
                     <div class="row">
                     <label>Customer ID

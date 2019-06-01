@@ -1,10 +1,10 @@
 <?php
 
-class cartController {
+class productController {
 
     protected $pdo;
 
-    public function __construct($db) {
+    public function __construct($db){
 
         $this->pdo = $db;
 
@@ -12,17 +12,16 @@ class cartController {
 
     public function create(){
 
-        $sql = "INSERT INTO `ORDER` (Price, OrderDate, ShippingDate, OrderStatus, Employee) VALUES('',CURDATE(),'','','')";
+        $sql = "INSERT INTO `PRODUCT` (Type, Manufacturing_Date) VALUES('',CURDATE())";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         checkSQL($stmt);
     }
 
-    public function delete($id){
-
-        $sql = 'DELETE FROM `ORDER` WHERE Order_ID = ?';
+    public function delete($Serial_No){
+        $sql = 'DELETE FROM `PRODUCT` WHERE Serial_No = ?';
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->execute([$Serial_No]);
         checkSQL($stmt);
 
         // return to list
@@ -33,10 +32,10 @@ class cartController {
         }
     }
 
-    public function save($id, $data){
-        $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, Customer_ID = ? WHERE Order_ID = ?";
+    public function save($Serial_No, $data){
+        $sql = "UPDATE `PRODUCT` SET Type = ?, Manufacturing_Date = ? WHERE Serial_No = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['Customer_ID'], $id]);
+        $stmt->execute([$data['Type'], $data['Manufacturing_Date'], $Serial_No]);
         checkSQL($stmt);
 
         // return to list
@@ -47,19 +46,17 @@ class cartController {
         }
     }
 
-    public function get($id){
-        // get record
-        $sql = "SELECT * FROM `ORDER` WHERE `Order_ID` = ?";
+    public function get($Serial_No){
+        $sql = "SELECT * FROM `PRODUCT` WHERE `Serial_No` = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->execute([$Serial_No]);
         checkSQL($stmt);
 
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
     public function getAll(){
-        // get result set
-        $sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
+        $sql = "SELECT * FROM `PRODUCT` ORDER BY `Serial_No` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
 

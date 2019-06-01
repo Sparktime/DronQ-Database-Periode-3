@@ -7,9 +7,6 @@
                 <a href = "customer-list.php" class="nav-link">Customers</a>
             </li>
             <li class="nav-item">
-                <a href = "reseller-list.php" class="nav-link">Resellers</a>
-            </li>
-            <li class="nav-item">
                 <a href = "product-list.php" class="nav-link">Products</a>
             </li>
             <li class="nav-item">
@@ -31,7 +28,7 @@
             <p>" "</p>
         </ul>
 
-    
+
 
 <!-- Warning before reset -->
         <script>
