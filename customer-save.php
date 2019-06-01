@@ -30,9 +30,9 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$Email, $oldEmail]);
 checkSQL($stmt);*/
 
-// return to list
-if(isset($_SESSION['list'])) {
-    header('location: ' . $_SESSION['list']);
-} else {
-    header('location: .');
-}
+//// return to list
+//if(isset($_SESSION['list'])) {
+//    header('location: ' . $_SESSION['list']);
+//} else {
+//    header('location: .');
+//}

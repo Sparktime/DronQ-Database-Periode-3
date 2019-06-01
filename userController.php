@@ -28,7 +28,7 @@ class userController {
         $stmt->execute([$id]);
         checkSQL($stmt);
 
-// return to list
+        // return to list
         if(isset($_SESSION['list'])) {
             header('location: ' . $_SESSION['list']);
         } else {
@@ -41,6 +41,13 @@ class userController {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
         checkSQL($stmt);
+
+        // return to list
+        if(isset($_SESSION['list'])) {
+            header('location: ' . $_SESSION['list']);
+        } else {
+            header('location: .');
+        }
     }
 
     public function get($id) {
