@@ -5,10 +5,14 @@ $_SESSION['list'] = 'product-list.php';
 
 
 include 'db.php';
+require 'productController.php';
 
-// get result set
-$sql = "SELECT * FROM `PRODUCT` ORDER BY `Serial_No` DESC";
-$rs = $pdo->query($sql, PDO::FETCH_OBJ);
+$list = new productController($pdo);
+$rs = $list-> getAll();
+
+//// get result set
+//$sql = "SELECT * FROM `PRODUCT` ORDER BY `Serial_No` DESC";
+//$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 ?>
 
 
