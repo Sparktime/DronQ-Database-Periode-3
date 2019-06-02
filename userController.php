@@ -10,14 +10,19 @@ class userController {
 
 
     }
-
+    public function register(){
+        $sql = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        checkSQL($stmt);
+    }
 
     public function create(){
 
-    $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, Telephone, Day_Of_Birth, RegistrationDate) VALUES('','','','','','','','',CURDATE())";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    checkSQL($stmt);
+        $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate) VALUES('','','','','','','','','',CURDATE())";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['PasswordHash'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
+        checkSQL($stmt);
 
     }
 
@@ -37,9 +42,9 @@ class userController {
     }
 
     public function save($id, $data) {
-        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
+        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, PasswordHash = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
+        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['PasswordHash'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
         checkSQL($stmt);
 
         // return to list
