@@ -17,17 +17,17 @@ CREATE TABLE `PRODUCT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
-CREATE TABLE `RESELLER` (
-    `Reseller_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`Company_Name` VARCHAR(40),
-	`Address` VARCHAR(40),
-	`ZipCode` VARCHAR(40),
-	`City` VARCHAR(40),
-    `Country` VARCHAR(40),
-	`Email` VARCHAR(40),
-    `Telephone` VARCHAR(40),
-    `Contact_Person` VARCHAR(40)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+-- CREATE TABLE `RESELLER` (
+--     `Reseller_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+-- 	`Company_Name` VARCHAR(40),
+-- 	`Address` VARCHAR(40),
+-- 	`ZipCode` VARCHAR(40),
+-- 	`City` VARCHAR(40),
+--     `Country` VARCHAR(40),
+-- 	`Email` VARCHAR(40),
+--     `Telephone` VARCHAR(40),
+--     `Contact_Person` VARCHAR(40)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 CREATE TABLE `USER` (
 	`Email`  VARCHAR(40) PRIMARY KEY,
@@ -71,9 +71,9 @@ CREATE TABLE `ORDER` (
     CONSTRAINT `FK_SerialNo`
     FOREIGN KEY(`Serial_No`) REFERENCES `PRODUCT` (`Serial_No`),
     
-
-    CONSTRAINT `FK_ReselID`
-    FOREIGN KEY(`Reseller_ID`) REFERENCES `RESELLER` (`Reseller_ID`),
+--
+--     CONSTRAINT `FK_ReselID`
+--     FOREIGN KEY(`Reseller_ID`) REFERENCES `RESELLER` (`Reseller_ID`),
     
     CONSTRAINT `FK_CustID`
     FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
@@ -116,7 +116,7 @@ RESELLER
 ===========================
 */
 
-INSERT INTO `RESELLER` (`Reseller_ID`,`Company_Name`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Contact_Person`) VALUES (1,"Events","734-5517 Lacinia St.","1842 ZA","Coevorden","Netherlands","magnis@vulputateduinec.org","094 7428729","Nayda W. Baxter"),(2,"Website","Ap #706-1181 Malesuada Av.","7453 FW","Doetinchem","Netherlands","enim.mi@eget.co.uk","032 9396443","Teegan Graham"),(3,"BCC","Ap #108-7170 In Road","4028 ZG","IJlst","Netherlands","facilisis@Phasellusnulla.com","055 0015204","Cody Yates"),(4,"Website","Ap #861-2668 Augue Street","3783 QD","Almere","Netherlands","augue@blandit.co.uk","072 2583634","Erin P. Welch"),(5,"Google","410-6341 Mi Avenue","8548 KW","Franeker","Netherlands","imperdiet.dictum.magna@dignissimlacusAliquam.ca","036 7584184","Kameko B. Le"),(6,"Expert","P.O. Box 849, 7545 Ultrices Ave","9386 BV","Almere","Netherlands","arcu.imperdiet.ullamcorper@egetmagnaSuspendisse.ca","034 9886059","Lucius Castaneda"),(7,"BCC","399-3339 Iaculis St.","5754 PF","Lelystad","Netherlands","amet.ante.Vivamus@miacmattis.edu","050 3932086","Ryan R. Terry"),(8,"Events","Ap #604-2619 Et St.","6063 IS","Sluis","Netherlands","consequat@auctor.edu","074 1023191","Caldwell P. Rogers"),(9,"Google","2757 Cras St.","7995 UI","Deventer","Netherlands","et@atpedeCras.co.uk","019 3657143","Vance G. Guerrero"),(10,"BCC","Ap #796-3350 Amet, Road","4430 NQ","Oosterhout","Netherlands","semper@utaliquam.edu","084 1764858","Orla Kirkland");
+-- INSERT INTO `RESELLER` (`Reseller_ID`,`Company_Name`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Contact_Person`) VALUES (1,"Events","734-5517 Lacinia St.","1842 ZA","Coevorden","Netherlands","magnis@vulputateduinec.org","094 7428729","Nayda W. Baxter"),(2,"Website","Ap #706-1181 Malesuada Av.","7453 FW","Doetinchem","Netherlands","enim.mi@eget.co.uk","032 9396443","Teegan Graham"),(3,"BCC","Ap #108-7170 In Road","4028 ZG","IJlst","Netherlands","facilisis@Phasellusnulla.com","055 0015204","Cody Yates"),(4,"Website","Ap #861-2668 Augue Street","3783 QD","Almere","Netherlands","augue@blandit.co.uk","072 2583634","Erin P. Welch"),(5,"Google","410-6341 Mi Avenue","8548 KW","Franeker","Netherlands","imperdiet.dictum.magna@dignissimlacusAliquam.ca","036 7584184","Kameko B. Le"),(6,"Expert","P.O. Box 849, 7545 Ultrices Ave","9386 BV","Almere","Netherlands","arcu.imperdiet.ullamcorper@egetmagnaSuspendisse.ca","034 9886059","Lucius Castaneda"),(7,"BCC","399-3339 Iaculis St.","5754 PF","Lelystad","Netherlands","amet.ante.Vivamus@miacmattis.edu","050 3932086","Ryan R. Terry"),(8,"Events","Ap #604-2619 Et St.","6063 IS","Sluis","Netherlands","consequat@auctor.edu","074 1023191","Caldwell P. Rogers"),(9,"Google","2757 Cras St.","7995 UI","Deventer","Netherlands","et@atpedeCras.co.uk","019 3657143","Vance G. Guerrero"),(10,"BCC","Ap #796-3350 Amet, Road","4430 NQ","Oosterhout","Netherlands","semper@utaliquam.edu","084 1764858","Orla Kirkland");
 
 
 /*

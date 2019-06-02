@@ -57,7 +57,7 @@ $rs = $list-> getAll();
                 <th>OrderStatus</th>
                 <th>Employee</th>
                 <th>Serial_No</th>
-                <th>Reseller_ID</th>
+
                 <th>Customer_ID</th>
                 <th>Delete</th>
             </tr>
@@ -73,7 +73,7 @@ $rs = $list-> getAll();
                 <td><?= $row->OrderStatus ?></td>
                 <td><?= $row->Employee ?></td>
                 <td><?= $row->Serial_No ?></td>
-                <td><?= $row->Reseller_ID ?></td>
+
                 <td><?= $row->Customer_ID ?></td>
                 <td><a title="delete" href="order-delete.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
