@@ -57,70 +57,61 @@ $row = $user->get($_GET['Customer_ID']);
         </nav>
     
     <!-- Input -->
-      <div class="container" style="margin-top:80px">
+
+
+    <div class="container" style="margin-top:80px">
         <div class="row">
 			<div class="col-xl-10">
                 <h1>Edit Customer</h1>
-                <div class="row">
-                    <label>Customer ID
-                        <input type="text" readonly name="Customer ID" value="<?= $row->Customer_ID ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Customer Surname
-                        <input type="text" name="Customer Surname" value="<?= $row->Customer_Surname ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Customer Firstname
-                        <input type="text" name="Customer Firstname" value="<?= $row->Customer_Firstname ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Address
-                        <input type="text" name="Address" value="<?= $row->Address ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>ZipCode
-                        <input type="text" name="ZipCode" value="<?= $row->ZipCode ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>City
-                        <input type="text" name="City" value="<?= $row->City ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Country
-                        <input type="text" name="Country" value="<?= $row->Country ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        Email
-                        <input type="text" readonly name="Email" value="<?= $row->Email ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Telephone
-                        <input type="text" name="Telephone" value="<?= $row->Telephone ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>Day Of Birth
-                        <input type="text" name="Day Of Birth" value="<?= $row->Day_Of_Birth ?>">
-                    </label>
-                </div>
-                <div class="row">
-                    <label>RegistrationDate
-                        <input type="text" name="RegistrationDate" value="<?= $row->RegistrationDate ?>">
-                    </label>
+                    <table class="table">
+                            <tr>
+                                <th>Customer ID</th>
+                                <th><input type="text" readonly name="Customer ID" value="<?= $row->Customer_ID ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Customer Surname</th>
+                                <th><input type="text" name="Customer Surname" value="<?= $row->Customer_Surname ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Customer Firstname</th>
+                                <th><input type="text" name="Customer Firstname" value="<?= $row->Customer_Firstname ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <th> <input type="text" name="Address" value="<?= $row->Address ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>ZipCode</th>
+                                <th><input type="text" name="ZipCode" value="<?= $row->ZipCode ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <th><input type="text" name="City" value="<?= $row->City ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Country</th>
+                                <th><input type="text" name="Country" value="<?= $row->Country ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th><input type="text" readonly name="Email" value="<?= $row->Email ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Telephone</th>
+                                <th><input type="text" name="Telephone" value="<?= $row->Telephone ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>Day Of Birth</th>
+                                <th><input type="text" name="Day Of Birth" value="<?= $row->Day_Of_Birth ?>"></th>
+                            </tr>
+                            <tr>
+                                <th>RegistrationDate</th>
+                                <th><input type="text" name="RegistrationDate" value="<?= $row->RegistrationDate ?>"></th>
+                            </tr>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-
     </form>
     </body>
 

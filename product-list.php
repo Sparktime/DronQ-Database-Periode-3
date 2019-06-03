@@ -36,11 +36,12 @@ $rs = $list-> getAll();
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <?php require 'menu.inc.php'; ?>
-            <a href = "productManager.php/" title="add a record" class="btn btn-success navbar-btn">New Product</a>
         </nav>
         
-<div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
+        <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
         <h1>Products</h1>
+        <a href = "productManager.php/" title="add a record" class="btn btn-success navbar-btn">New Product</a>
+    
         <!-- show result set -->
         <table class="table">
             <tr>

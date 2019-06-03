@@ -34,11 +34,12 @@ $rs = $list-> getAll();
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <?php require 'menu.inc.php'; ?>
-            <a href = "customer-new.php" title="add a record" class="btn btn-success navbar-btn">New Customer</a>
         </nav>
         
 <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
         <h1>Customers</h1>
+        <a href = "customer-new.php" title="add a record" class="btn btn-success navbar-btn">New Customer</a>
+    
         <!-- show result set -->
         <table class="table">
             <tr>

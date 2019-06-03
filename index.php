@@ -27,17 +27,19 @@
   <body id="page-top">
     
 	<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
-      <div class="container col-xl-9">
-        <a class="navbar-brand js-scroll-trigger " href="#page-top">DronQ Industries</a>
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar">
+        <?php require 'menu.inc.php';?>
+    
+      
+	<!--	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
         </button>
 		
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
+            
+   <ul class="navbar-nav ml-auto">
+		 	<li class="nav-item">
 				<a href="#info" class="nav-link js-scroll-trigger">Info</a>
             </li>
 			<li class="nav-item">		     
@@ -45,16 +47,16 @@
             </li>
             <li class="nav-item">
                 <a type="button" href="http://dronq.thuis.io/webstore.php" class="btn  btn-warning">Webstore</a>
-            </li>
+           </li>
             <li class="nav-item">		     
 				<a type="button" href="http://dronq.thuis.io/database.php" class="btn  btn-warning">Database</a>
             </li>
 			<li class="nav-item">
 				<a type="button" href="#orderform" type="submit" class="btn btn-block btn-xs btn-primary js-scroll-trigger">Pre-order</a>
             </li>
-          </ul>
+          </ul> -->
+            
         </div>
-      </div>
     </nav>
 
 	

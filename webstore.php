@@ -34,78 +34,79 @@ $rs = $webstore->getAll();
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <?php require 'menu.inc.php'; ?>
-        <a href = "webstore.php" title="add a record" class="btn btn-success navbar-btn">Webstore</a>
     </nav>
 
     <!-- Images & Text -->
     <section id="info" class="showcase about-section">
         <div class="container-fluid p-0">
-
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+        <div class="col-xl-9 mx-auto">
+            <a href="product.php" class="stretched-link">
                 <div class="row no-gutters">
                     <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/blue-drone.jpg');"></div>
                         <div class="col-lg-6 my-auto showcase-text">
                         <h2>DronqDroneV1Blue </h2>
-                        <p class="lead mb-0">This Blue colored drone is one off the first products off Dronq Industies.</p>
+                        <p class="lead mb-0">This blue colored drone is one off the first products off Dronq Industies.</p>
                         <p>Go to Product</p>
                     </div>
                 </div>
+            
             </a>
 
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+            <a href="product.php" class="stretched-link">
                 <div class="row no-gutters">
                     <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/red-drone.jpg');"></div>
                         <div class="col-lg-6 my-auto showcase-text">
                         <h2>DronqDroneV1Red</h2>
-                        <p class="lead mb-0">This Red colored drone is one off the first products off Dronq Industies.</p>
+                        <p class="lead mb-0">This red colored drone is one off the first products off Dronq Industies.</p>
                             <p>Go to Product</p>
                     </div>
                 </div>
             </a>
 
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+            <a href="product.php" class="stretched-link">
                  <div class="row no-gutters">
                      <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
                      <div class="col-lg-6 my-auto showcase-text">
                          <h2>DronqFridgeV1Red</h2>
-                         <p class="lead mb-0">This Red colored fridge is one off the first cooling products off Dronq Industies.</p>
+                         <p class="lead mb-0">This red colored fridge is one off the first cooling products off Dronq Industies.</p>
                          <p>Go to Product</p>
                      </div>
                  </div>
             </a>
 
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+            <a href="product.php" class="stretched-link">
                  <div class="row no-gutters">
                      <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
                         <div class="col-lg-6 my-auto showcase-text">
                             <h2>DronqFridgeV1Blue</h2>
-                            <p class="lead mb-0">This Blue colored fridge is one off the first cooling products off Dronq Industies.</p>
+                            <p class="lead mb-0">This blue colored fridge is one off the first cooling products off Dronq Industies.</p>
                             <p>Go to Product</p>
                      </div>
                  </div>
             </a>
 
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+            <a href="product.php" class="stretched-link">
                  <div class="row no-gutters">
                      <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
                         <div class="col-lg-6 my-auto showcase-text">
                             <h2>DronqSetV1Red</h2>
-                            <p class="lead mb-0">This Red colored set is a combined drone with the fridge. The set is are both off the version 1.0 of Dronq Industries</p>
+                            <p class="lead mb-0">This red colored set is a combined drone with the fridge. The set is are both off the version 1.0 of Dronq Industries</p>
                             <p>Go to Product</p>
                         </div>
                  </div>
             </a>
 
-            <a href="http://dronq.thuis.io/database.php" class="stretched-link">
+            <a href="product.php" class="stretched-link">
                 <div class="row no-gutters">
                     <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
                        <div class="col-lg-6 my-auto showcase-text">
                        <h2>DronqSetV1Blue</h2>
-                          <p class="lead mb-0">This Blue colored set is a combined drone with the fridge. The set is are both off the version 1.0 of Dronq Industries</p>
+                          <p class="lead mb-0">This blue colored set is a combined drone with the fridge. The set is are both off the version 1.0 of Dronq Industries</p>
                           <p>Go to Product</p>
                     </div>
                  </div>
             </a>
+        </div>
     </section>
 
     <!-- The Founders -->
