@@ -36,7 +36,7 @@ $rs = $list-> getAll();
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <?php require 'menu.inc.php'; ?>
-            <a href = "product-new.php" title="add a record" class="btn btn-success navbar-btn">New Product</a>
+            <a href = "productManager.php/" title="add a record" class="btn btn-success navbar-btn">New Product</a>
         </nav>
         
 <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
@@ -58,13 +58,14 @@ $rs = $list-> getAll();
                 <td><?= $row->Serial_No ?></td>
                 <td><?= $row->Type ?></td>
                 <td><?= $row->Manufacturing_Date ?></td>
-                <td><a title="delete" href="product-delete.php?Serial_No=<?= $row->Serial_No ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="productManager.php?Serial_No=<?= $row->Serial_No ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             
         </table>
-        </div>
+        </div>s
     </body>
 
 </html>
 
+    

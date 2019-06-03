@@ -30,7 +30,7 @@
     
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
             <h1>Register</h1>
-            <form method="post" action="register-new.php">
+            <form method="post" action="customer-edit.php">
                 <div class="form-group col-lg-3">
                     <label for="email">Email:</label>
                     <input type="text" class="form-control" placeholder="Enter Email" name="email">
