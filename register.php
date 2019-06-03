@@ -1,3 +1,7 @@
+// new usercontroller for register
+return customer_id to customer_edit.php
+
+
 <!doctype html>
 <html lang="nl">
     <head>
@@ -30,6 +34,8 @@
     
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
             <h1>Register</h1>
+
+
             <form method="post" action="customer-edit.php">
                 <div class="form-group col-lg-3">
                     <label for="email">Email:</label>

@@ -10,11 +10,25 @@ class userController {
 
 
     }
+
+    //from register screen
     public function register(){
+
+        /// password moet nog worden gehashed
         $sql = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         checkSQL($stmt);
+
+
+// to register _user-manager?
+        $id = "SELECT `Customer_ID` FROM `CUSTOMER` WHERE `Email` = $sql[0]";
+
+        $getid = $this->pdo->prepare($sql);
+        $getid->execute([$id]);
+        checkSQL($getid);
+
+        return $getid->fetch(PDO::FETCH_OBJ);
     }
 
     public function create(){
