@@ -1,10 +1,13 @@
 <?php
+session_start();
 
-class userController {
+class userController
+{
 
     protected $pdo;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
 
         $this->pdo = $db;
 
@@ -12,28 +15,51 @@ class userController {
     }
 
     //from register screen
-    public function register($data){
+    public function register($email, $password)
+    {
 
         /// password moet nog worden gehashed
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($data);
+        $stmt->execute([$email, $password]);
+
         checkSQL($stmt);
 
+        return $this->pdo->lastInsertId();
+    }
 
-// to register _user-manager?
-        $id = 'SELECT `Customer_ID` FROM `CUSTOMER` WHERE `Email` = ?';
+    public function login($email, $password)
+    {
 
-        $getid = $this->pdo->prepare($data['Email']);
-        $getid->execute([$id]);
-        checkSQL($getid);
 
-        return $getid->fetch(PDO::FETCH_OBJ);
+        $sql = "SELECT `PasswordHash` FROM `CUSTOMER` WHERE `Email` = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$email]);
+        checkSQL($stmt);
+        $hash = $stmt->fetch(PDO::FETCH_OBJ);
+        $test = $hash->PasswordHash;
+
+        if (password_verify($password, $test)) {
+            $sql2 = "SELECT `Customer_ID`  FROM `CUSTOMER` WHERE `Email` = ?";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([$email]);
+            checkSQL($stmt2);
+            $customerid = $stmt2->fetch(PDO::FETCH_OBJ);
+            $id = $customerid->Customer_ID;
+
+            $_SESSION['customerid'] = $id;
+
+            header('location: customer-edit.php?Customer_ID=' . $id);
+        } else {
+            echo 'Invalid password.';
+        }
+
     }
 
 
-
-    public function create(){
+    public function create()
+    {
 
         $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate) VALUES('','','','','','','','','',CURDATE())";
         $stmt = $this->pdo->prepare($sql);
@@ -42,7 +68,8 @@ class userController {
 
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
 
         $sql = 'DELETE FROM `CUSTOMER` WHERE Customer_ID = ?';
         $stmt = $this->pdo->prepare($sql);
@@ -50,28 +77,30 @@ class userController {
         checkSQL($stmt);
 
         // return to list
-        if(isset($_SESSION['list'])) {
+        if (isset($_SESSION['list'])) {
             header('location: ' . $_SESSION['list']);
         } else {
             header('location: .');
         }
     }
 
-    public function save($id, $data) {
-        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, PasswordHash = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
+    public function save($id, $data)
+    {
+        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['PasswordHash'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
+        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
         checkSQL($stmt);
 
         // return to list
-        if(isset($_SESSION['list'])) {
+        if (isset($_SESSION['list'])) {
             header('location: ' . $_SESSION['list']);
         } else {
             header('location: .');
         }
     }
 
-    public function get($id) {
+    public function get($id)
+    {
 
         $sql = "SELECT * FROM `CUSTOMER` WHERE `Customer_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
@@ -82,7 +111,8 @@ class userController {
 
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         // get result set
         $sql = "SELECT * FROM `CUSTOMER` ORDER BY `Customer_ID` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);

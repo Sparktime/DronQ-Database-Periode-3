@@ -1,4 +1,11 @@
 <?php
+session_start();
+if ($_SESSION['customerid'] != $_GET['Customer_ID'] && $_SESSION['level'] != admin)
+    header('location: customer-edit.php?Customer_ID='.$_SESSION['customerid']);
+
+
+
+
 require 'db.php';
 require 'userController.php';
 // get url parameter
@@ -14,6 +21,10 @@ require 'userController.php';
 
 $user = new userController($pdo);
 $row = $user->get($_GET['Customer_ID']);
+
+
+
+
 ?>
 
 

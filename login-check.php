@@ -30,9 +30,9 @@ require 'userController.php';
 //$_SESSION['email'] = $email;
 
 
-$register = new userController($pdo);
-$id = $register->register($_POST['Email'], $_POST['PasswordHash']);
-
+$login = new userController($pdo);
+$id = $login->login($_POST['Email'], $_POST['PasswordHash']);
+var_dump($id);
 if(isset($id))
     header('location: customer-edit.php?Customer_ID='.$id);
 
