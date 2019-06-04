@@ -1,5 +1,5 @@
 <?php
- UTF-8 NΟ BOM
+// UTF-8 NΟ BOM
 session_start();
 require 'db.php';
 require 'productController.php';
@@ -11,7 +11,7 @@ $Serial_No = $_GET['Serial_No'];
 $delete = new productController($pdo);
 $delete->delete($_GET['Serial_No']);
 
- delete record
+// delete record
 $sql = 'DELETE FROM `PRODUCT` WHERE Serial_No = ?';
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$Serial_No]);
