@@ -31,10 +31,10 @@ require 'userController.php';
 
 
 $register = new userController($pdo);
-$register->register();
+$register->register($_POST);
+$getid = $register->get($_GET['Customer_ID']);
 
-
-header('location: customer-edit.php?Customer_ID='.$customerid);
+header('location: customer-edit.php?Customer_ID='.$getid->Customer_ID);
 
 
 
