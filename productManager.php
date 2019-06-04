@@ -1,13 +1,42 @@
 <?php
 //
-//session_start();
-//require 'db.php';
-//require 'productController.php';
-//
-//    // NEW PRODUCT //
-//
-//    $create = new productController($pdo);
-//    $create->create();
+
+
+session_start();
+require 'db.php';
+require 'productController.php';
+
+if($_GET['action'] == 'save'){
+
+    $save = new productController($pdo);
+    $save->save($_POST['Serial_No'], $_POST);
+}
+
+if($_GET['action'] == 'create') {
+
+
+    // NEW PRODUCT //
+
+    $create = new productController($pdo);
+    $create->create();
+
+
+
+}
+
+switch($_GET['action']{
+
+case = save {
+
+}
+    // NEW PRODUCT //
+
+    $create = new productController($pdo);
+    $create->create();
+
+
+
+})
 //
 //    // DELETE FUNCTIE //
 //
@@ -18,4 +47,4 @@
 //
 //
 //
-//header('location: product-list.php');
+header('location: product-list.php');
