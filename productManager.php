@@ -24,19 +24,6 @@ if($_GET['action'] == 'create') {
 
 }
 
-switch($_GET['action']{
-
-case = save {
-
-}
-    // NEW PRODUCT //
-
-    $create = new productController($pdo);
-    $create->create();
-
-
-
-})
 //
 //    // DELETE FUNCTIE //
 //
