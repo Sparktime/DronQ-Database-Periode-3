@@ -1,5 +1,4 @@
 <?php
-
 interface Record {
     static function get(string $key);
     static function getAll(): ResultSet;
