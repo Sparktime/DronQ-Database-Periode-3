@@ -32,7 +32,7 @@ $row = $product->get($_GET['Serial_No']);
     <body>
 
     <!-- Navigation -->
-    <form method="post" action="product-save.php">
+    <form method="post" action="productManager.php?action=save">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container col-xl-12">
                 <ul class="navbar-nav">

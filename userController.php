@@ -14,21 +14,26 @@ class userController
 
     }
 
-    //from register screen
+    //Registreer function,
     public function register($email, $password)
     {
-
-        /// password moet nog worden gehashed
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
+        $sql = "SELECT `Email` FROM `CUSTOMER` WHERE `Email` = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$email, $password]);
-
+        $stmt->execute([$email]);
         checkSQL($stmt);
+        if ($stmt->rowCount() == 0) {
+            /// password wordt gehashed
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            //gebruiker wordt opgeslagen in de DB
+            $sql2 = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([$email, $password]);
 
-        return $this->pdo->lastInsertId();
+            checkSQL($stmt);
+
+            return $this->pdo->lastInsertId();
+        }
     }
-
     public function login($email, $password)
     {
 

@@ -15,6 +15,7 @@ class productController {
         $sql = "INSERT INTO `PRODUCT` (Type, Manufacturing_Date) VALUES('',CURDATE())";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
+//        $stmt->debugDumpParams();
         checkSQL($stmt);
     }
 

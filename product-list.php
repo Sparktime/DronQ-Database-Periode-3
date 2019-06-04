@@ -32,7 +32,7 @@ $rs = $list-> getAll();
         
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
         <h1>Products</h1>
-        <a href = "productManager.php/" title="add a record" class="btn btn-success navbar-btn">New Product</a>
+        <a href = "productManager.php?action=create" title="add a record" class="btn btn-success navbar-btn">New Product</a>
     
         <!-- show result set -->
         <table class="table">
@@ -56,7 +56,7 @@ $rs = $list-> getAll();
             <?php } ?>
             
         </table>
-        </div>s
+        </div>
     </body>
 
 </html>
