@@ -21,39 +21,43 @@ include 'db.php';
     </nav>
 </div>
 
-<!-- Masthead -->
-<div class="row">
-    <div>
-        <div class="col-xl-6 mx-auto container-fluid" style="margin-top:80px">
-            <h1>Login</h1>
-            <form method="post" action="login-check.php">
-                <div class="form-group col-lg-3">
-                    <label for="email">Email:</label>
-                    <input type="text" class="form-control" placeholder="Enter Email" name="Email">
-                </div>
-                <div class="form-group col-lg-3">
-                    <label for="pwd">Password:</label>
-                    <input type="password"  name="PasswordHash" class="form-control" placeholder="Enter password">
-                </div>  
-                
-                <button type="submit" value="login"class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
-    <div class="col-xl-6 mx-auto container-fluid" style="margin-top:80px">
-        <h1>Register</h1>
-        <form method="post" action="register-new.php">
-            <div class="form-group col-lg-3">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" placeholder="Enter Email" name="Email">
-            </div>
-            <div class="form-group col-lg-3">
-                <label for="pwd">Password:</label>
-                <input type="password"  name="PasswordHash" class="form-control" placeholder="Enter password">
+<!-- Login -->
+<div class="container-fluid">
+    <div class="col-xl-9 mx-auto" style="margin-top:80px">
+        <div class="row">
+            <div class="col-sm-6 mx-auto" >
+                <h1>Login</h1>
+                <form method="post" action="login-check.php">
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" placeholder="Enter Email" name="Email">
+                    </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <label for="pwd">Password:</label>
+                        <input type="password"  name="PasswordHash" class="form-control" placeholder="Enter password">
+                    </div>  
+
+                    <button type="submit" value="login"class="btn btn-primary">Submit</button>
+                </form>
             </div>
 
-            <button type="submit" value="login"class="btn btn-primary">Submit</button>
-        </form>
+    <!-- Register -->
+            <div class="col-sm-6 mx-auto">
+                <h1>Register</h1>
+                <form method="post" action="register-new.php">
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" placeholder="Enter Email" name="Email">
+                    </div>
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <label for="pwd">Password:</label>
+                        <input type="password"  name="PasswordHash" class="form-control" placeholder="Enter password">
+                    </div>
+
+                    <button type="submit" value="login"class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>
