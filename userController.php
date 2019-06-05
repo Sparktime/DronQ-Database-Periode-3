@@ -30,8 +30,9 @@ class userController
             $stmt2->execute([$email, $password]);
 
             checkSQL($stmt);
-
-            return $this->pdo->lastInsertId();
+            $session = $this->pdo->lastInsertId();
+            $_SESSION['customerid'] = $session;
+            return $session;
         }
     }
     public function login($email, $password)
