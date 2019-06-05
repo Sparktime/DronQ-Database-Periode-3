@@ -3,9 +3,6 @@ session_start();
 if ($_SESSION['customerid'] != $_GET['Customer_ID'] && $_SESSION['level'] != admin)
     header('location: customer-edit.php?Customer_ID='.$_SESSION['customerid']);
 
-
-
-
 require 'db.php';
 require 'userController.php';
 // get url parameter
@@ -22,9 +19,6 @@ require 'userController.php';
 $user = new userController($pdo);
 $row = $user->get($_GET['Customer_ID']);
 
-
-
-
 ?>
 
 
@@ -39,7 +33,7 @@ $row = $user->get($_GET['Customer_ID']);
     <body>
 
     <!-- Navigation -->
-    <form method="post" action="customer-save.php">
+    <form method="post" action="userManager.php?action=save">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container col-xl-12">
                 <ul class="navbar-nav">
