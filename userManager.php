@@ -2,7 +2,7 @@
 
 session_start();
 require 'db.php';
-require 'productController.php';
+require 'userController.php';
 
     // NEW PRODUCT //
 if($_GET['action'] == 'create') {

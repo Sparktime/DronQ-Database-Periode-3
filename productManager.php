@@ -5,7 +5,6 @@ require 'db.php';
 require 'productController.php';
 
 
-
         // NEW PRODUCT //
 if($_GET['action'] == 'create') {
 

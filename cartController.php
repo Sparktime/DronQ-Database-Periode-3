@@ -36,7 +36,7 @@ class cartController {
     public function save($id, $data){
         $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, Customer_ID = ? WHERE Order_ID = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['Customer_ID'], $id]);
+        $stmt->execute([$data['Price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['Customer_ID'], $id]);
         checkSQL($stmt);
 
         // return to list

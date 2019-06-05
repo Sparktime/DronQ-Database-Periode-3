@@ -30,7 +30,7 @@ $row = $order->get($_GET['Order_ID']);
     <body>
 
     <!-- Navigation-->
-        <form method="post" action="order-save.php">
+        <form method="post" action="cartManager.php?action=save">
              <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div class="container col-xl-12">
                     <ul class="navbar-nav">
@@ -84,15 +84,10 @@ $row = $order->get($_GET['Order_ID']);
                         <input type="text" name="Employee" value="<?= $row->Employee ?>">
                     </label>
                 </div>
-                    <div class="row">
+                <div class="row">
                     <label>Serial No
                         <input type="text" name="Serial No" value="<?= $row->Serial_No ?>">
                     </label>
-                </div>
-<!--                    <div class="row">-->
-<!--                    <label>Reseller ID-->
-<!--                        <input type="text" name="Reseller ID" value="--><?//= $row->Reseller_ID ?><!--">-->
-<!--                    </label>-->
                 </div>
                     <div class="row">
                     <label>Customer ID

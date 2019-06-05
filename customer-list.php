@@ -31,7 +31,7 @@ $rs = $list-> getAll();
         
 <div class="col-xl-12 mx-auto container-fluid">
         <h1>Customers</h1>
-        <a href = "customer-new.php" title="add a record" class="btn btn-success navbar-btn">New Customer</a>
+        <a href = "userManager.php?action=create" title="add a record" class="btn btn-success navbar-btn">New Customer</a>
     
         <!-- show result set -->
         <table class="table">
@@ -66,7 +66,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Telephone ?></td>
                 <td><?= $row->Day_Of_Birth ?></td>
                 <td><?= $row->RegistrationDate ?></td>
-                <td><a title="delete" href="customer-delete.php?Customer_ID=<?= $row->Customer_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="userManager.php?action=delete&Customer_ID=<?= $row->Customer_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             
