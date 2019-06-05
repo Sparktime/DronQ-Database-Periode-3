@@ -26,10 +26,42 @@ try {
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 // function to call after execution of statement
-function checkSQL($stmt) {
-    $info = $stmt->errorInfo();
+function checkSQL($stmt)
+{
+   $info = $stmt->errorInfo();
     if ($info[0] != '00000') {
         echo $info[2];
         exit;
     }
 }
+
+//function checkSQL($stmt)
+{
+    $info = $stmt->errorInfo();
+    if ($info[0] != '00000') {
+        $x = $info[2];
+        echo '<script type='text/javascript'>';
+        echo 'error(x);';
+        echo '</script>";';
+
+       exit;
+    }
+}
+
+?>
+
+<script type="text/JavaScript">
+    function error(x) {
+
+        var txt;
+        var r = confirm("You Fucked Up Son!");
+        if (r == true) {
+            var myWindow = window.open("<?=$_SESSION['list']?>//", "_self")
+            txt = "Return to list";
+        } else {
+            txt = "Show Error";
+            window.alert(x);
+        }
+    }
+
+</script>
