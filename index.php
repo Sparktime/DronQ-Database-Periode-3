@@ -13,12 +13,7 @@
 	<!--	
             
    <ul class="navbar-nav ml-auto">
-		 	<li class="nav-item">
-				<a href="#info" class="nav-link js-scroll-trigger">Info</a>
-            </li>
-			<li class="nav-item">		     
-				<a href="#specs" class="nav-link js-scroll-trigger">Specs</a>
-            </li>
+
             <li class="nav-item">
                 <a type="button" href="http://dronq.thuis.io/webstore.php" class="btn  btn-warning">Webstore</a>
            </li>

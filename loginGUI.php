@@ -14,11 +14,6 @@
 </div>
 
 <!-- Masthead -->
-<header class="masthead text-white text-top">
-    <div class="overlay">
-    </div>
-</header>
-
 <div class="row">
     <div>
         <div class="col-xl-6 mx-auto container-fluid" style="margin-top:80px">
