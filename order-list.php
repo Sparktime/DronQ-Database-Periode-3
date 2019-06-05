@@ -9,13 +9,13 @@ require 'cartController.php';
 $list = new cartController($pdo);
 $rs = $list-> getAll();
 
-
-
-?>
-
 //// get result set
 //$sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
 //$rs = $pdo->query($sql, PDO::FETCH_OBJ);
+
+?>
+
+
 
 
 
@@ -34,7 +34,7 @@ $rs = $list-> getAll();
         
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
         <h1>Orders</h1>
-        <a href = "order-new.php" title="add a record" class="btn btn-success navbar-btn">New Order</a>
+        <a href = "cartManager.php?action=create" title="add a record" class="btn btn-success navbar-btn">New Order</a>
     
         <!-- show result set -->
         <table class="table">
@@ -65,7 +65,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Serial_No ?></td>
 
                 <td><?= $row->Customer_ID ?></td>
-                <td><a title="delete" href="order-delete.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="cartManager.php?action=delete&Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             
