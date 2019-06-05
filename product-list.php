@@ -51,7 +51,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Serial_No ?></td>
                 <td><?= $row->Type ?></td>
                 <td><?= $row->Manufacturing_Date ?></td>
-                <td><a title="delete" href="productManager.php?Serial_No=<?= $row->Serial_No ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="productManager.php?action=delete&Serial_No=<?= $row->Serial_No ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             
