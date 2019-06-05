@@ -1,11 +1,3 @@
-<?php
-include 'db.php';
-//require 'userController.php';
-//
-//$register = new userController($pdo);
-//$register->register($_POST);
-
-?>
 <!doctype html>
 <html lang="nl">
 <head>
