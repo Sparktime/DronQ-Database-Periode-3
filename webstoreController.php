@@ -12,11 +12,11 @@ class webstoreController
 
     }
 
-    public function get($Serial_No){
+    public function get($Type){
 
-        $sql = "SELECT * FROM `PRODUCT` WHERE `Serial_No` = ?";
+        $sql = "SELECT * FROM `PRODUCTINFO` WHERE `Type` = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$Serial_No]);
+        $stmt->execute([$Type]);
         checkSQL($stmt);
 
         return $stmt->fetch(PDO::FETCH_OBJ);
@@ -24,7 +24,7 @@ class webstoreController
 
     public function getAll(){
 
-        $sql = "SELECT * FROM `PRODUCT` ORDER BY `Serial_No` DESC";
+        $sql = "SELECT * FROM `PRODUCTINFO` ORDER BY `Type` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
 
