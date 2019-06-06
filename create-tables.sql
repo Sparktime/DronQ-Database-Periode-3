@@ -3,8 +3,7 @@
 
 DROP TABLE IF EXISTS `ORDER`; 
 DROP TABLE IF EXISTS `CUSTOMER`;
-DROP TABLE IF EXISTS `USER`;
--- DROP TABLE IF EXISTS `RESELLER`;
+DROP TABLE IF EXISTS `PRODUCTINFO`;
 DROP TABLE IF EXISTS `PRODUCT`;
 
 
@@ -17,24 +16,15 @@ CREATE TABLE `PRODUCT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
--- CREATE TABLE `RESELLER` (
---     `Reseller_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
--- 	`Company_Name` VARCHAR(40),
--- 	`Address` VARCHAR(40),
--- 	`ZipCode` VARCHAR(40),
--- 	`City` VARCHAR(40),
---     `Country` VARCHAR(40),
--- 	`Email` VARCHAR(40),
---     `Telephone` VARCHAR(40),
---     `Contact_Person` VARCHAR(40)
--- ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+CREATE TABLE `PRODUCTINFO` (
+  `Name` VARCHAR(40),
+	`Type` VARCHAR(40) PRIMARY KEY,
+	`Text` TEXT,
+	`Specs` TEXT,
+	`Price` INT,
+	`IMG` VARCHAR(40)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
--- CREATE TABLE `USER` (
--- 	`Email`  VARCHAR(40) PRIMARY KEY,
--- 	`PasswordHash` VARCHAR(256),
---     `Salt` VARCHAR(256),
---     `Level` INT
--- ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
 CREATE TABLE `CUSTOMER` (
@@ -50,11 +40,6 @@ CREATE TABLE `CUSTOMER` (
     `Telephone` VARCHAR(40),
     `Day_Of_Birth` DATE,
     `RegistrationDate` DATE
-    
---    CONSTRAINT `FK_Email`
---    FOREIGN KEY(`Email`) REFERENCES `USER`(`Email`)
---    ON UPDATE CASCADE
---    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
@@ -78,14 +63,6 @@ CREATE TABLE `ORDER` (
     ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-/*
-===========================
-USER
-===========================
-*/
-
--- INSERT INTO `USER` (`Email`, `PasswordHash`, `Salt`, `Level`) VALUES
--- ("molestie@eleifendCrassed.net","wachtwoord",123456,1),("amet@tincidunt.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("lectus.sit@acturpisegestas.edu","wachtwoord",123456,1),("id.sapien.Cras@Proin.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("orci.sem.eget@nibhPhasellusnulla.edu","wachtwoord",123456,1),("eu@nonenimMauris.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("aliquam@Cumsociisnatoque.edu","wachtwoord",123456,2),("mus.Proin@risus.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("Vivamus.euismod.urna@Cum.org","wachtwoord",123456,2),("montes.nascetur.ridiculus@vitae.edu","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2);
 
 /*
 ===========================
@@ -95,6 +72,19 @@ PRODUCT
 
 INSERT INTO `PRODUCT` (`Type`,`Serial_No`,`Manufacturing_Date`) VALUES ("DronqDroneV1Red",83546000,"2018-09-25 08:49:24"),("DronqSetV1Blue",83546001,"2018-09-01 13:39:28"),("DronqSetV1Red",83546002,"2018-11-10 20:08:05"),("DronqFridgeV1Blue",83546003,"2018-10-27 01:55:30"),("DronqDroneV1Blue",83546004,"2018-09-06 23:19:18"),("DronqSetV1Red",83546005,"2018-09-03 15:38:56"),("DronqDroneV1Blue",83546006,"2018-11-15 05:33:10"),("DronqFridgeV1Red",83546007,"2018-09-30 02:54:41"),("DronqSetV1Red",83546008,"2018-10-22 05:08:19"),("DronqSetV1Red",83546009,"2018-09-30 10:02:04");
 
+
+
+
+/*
+===========================
+PRODUCTINFO
+===========================
+*/
+
+INSERT INTO `PRODUCTINFO` (`Name`,`Type`,`Text`,`Specs`,`Price`,`IMG`)
+VALUES ("DronQ Drone","DronqDroneV1","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ante felis, gravida feugiat tellus sit amet, aliquam pretium erat. Proin faucibus, odio convallis luctus porttitor, nunc ex ornare eros, in tristique odio ex vitae nisl. Ut mi nisi, commodo at neque vitae, vestibulum pretium mauris. Nulla quam sapien, iaculis in neque ac, euismod aliquet nisl. Praesent sit amet elit eget lorem ornare sagittis a et lorem. Mauris vulputate enim ut mauris aliquam, nec tempus purus scelerisque. Vivamus a lorem et dolor venenatis posuere. Vivamus pellentesque vel lacus non placerat. Maecenas pretium ex fermentum, condimentum orci vel, dictum neque. Quisque eget diam purus. Phasellus bibendum sapien vel diam tincidunt pharetra.","Aliquam erat volutpat. Curabitur facilisis ac augue et finibus. Mauris vel imperdiet justo. Nulla dolor magna, congue vel quam a, lobortis mattis odio. Morbi eu elit hendrerit libero efficitur congue sit amet sit amet dolor. Suspendisse potenti. Quisque sit amet placerat purus. Curabitur tempus porttitor nibh ac pharetra. Sed posuere, quam id lobortis mollis, nunc quam ultrices tortor, eget laoreet neque magna nec odio. Ut velit ante, posuere sagittis ante vitae, tincidunt sodales velit. Curabitur interdum odio ipsum, nec vestibulum arcu viverra condimentum. Vestibulum pellentesque justo et urna volutpat, nec vestibulum ipsum eleifend.","999","/img/productInfo/drone.jpg"),
+  VALUES ("DronQ Fridge","DronqFridgeV1","Wat een mooie drone","Hallo dit is goeie specs drone","699","/img/productInfo/fridge.jpg"),
+  VALUES ("DronQ Set","DronqSetV1","Wat een mooie drone","Hallo dit is goeie specs drone","1399","/img/productInfo/set.jpg");
 
 /*
 ===========================
@@ -106,14 +96,6 @@ INSERT INTO `CUSTOMER` (`Customer_ID`,`Customer_Surname`,`Customer_Firstname`,`A
 (1,"Glenn","Gage","P.O. Box 996, 2281 Lacus. Rd.","3315 KG","Tilburg","Netherlands","molestie@eleifendCrassed.net","045 6856052","1985-11-07 14:37:33","2019-03-01 09:10:58"),(2,"Morin","Francis","730-5527 Eleifend, Rd.","0260 BR","Alkmaar","Netherlands","amet@tincidunt.co.uk","089 5303231","1971-03-09 15:57:53","2019-05-23 00:28:56"),(3,"Marquez","Jamalia","Ap #795-9574 Praesent Rd.","6524 IS","Terneuzen","Netherlands","lectus.sit@acturpisegestas.edu","047 4571372","1994-02-10 00:21:35","2019-05-15 07:51:42"),(4,"Greer","Kenyon","6696 Sit Street","4898 MM","Wijshagen","Netherlands","id.sapien.Cras@Proin.net","069 4389762","2000-01-31 09:37:41","2018-03-13 07:52:20"),(5,"Perry","Hayes","801-7835 Nullam Street","3480 YS","Helmond","Netherlands","orci.sem.eget@nibhPhasellusnulla.edu","071 2905282","1973-01-29 11:29:59","2019-02-17 05:21:56"),(6,"Hanson","Kylie","P.O. Box 858, 9201 Dui St.","1814 RM","Hindeloopen","Netherlands","eu@nonenimMauris.net","054 3042094","1977-05-15 22:09:35","2019-04-19 09:43:25"),(7,"Briggs","Rooney","P.O. Box 935, 2184 Morbi St.","3754 JD","Zierikzee","Netherlands","aliquam@Cumsociisnatoque.edu","073 2573899","1983-06-27 04:44:11","2018-05-20 18:41:27"),(8,"Flowers","Aphrodite","988-1380 A St.","2672 QA","Deventer","Netherlands","mus.Proin@risus.co.uk","029 3947430","1962-12-25 13:59:29","2019-07-08 05:56:54"),(9,"Saunders","Calista","9472 Varius. Street","1396 DG","Haren","Netherlands","Vivamus.euismod.urna@Cum.org","089 1223756","1991-08-18 10:17:53","2019-11-05 06:09:04"),(10,"Parrish","Rylee","P.O. Box 814, 3491 Lectus Avenue","2882 ED","Ellikom","Netherlands","montes.nascetur.ridiculus@vitae.edu","027 9908820","2003-03-23 02:29:34","2017-12-27 16:06:36");
 
 
-
-/*
-===========================
-RESELLER
-===========================
-*/
-
--- INSERT INTO `RESELLER` (`Reseller_ID`,`Company_Name`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Contact_Person`) VALUES (1,"Events","734-5517 Lacinia St.","1842 ZA","Coevorden","Netherlands","magnis@vulputateduinec.org","094 7428729","Nayda W. Baxter"),(2,"Website","Ap #706-1181 Malesuada Av.","7453 FW","Doetinchem","Netherlands","enim.mi@eget.co.uk","032 9396443","Teegan Graham"),(3,"BCC","Ap #108-7170 In Road","4028 ZG","IJlst","Netherlands","facilisis@Phasellusnulla.com","055 0015204","Cody Yates"),(4,"Website","Ap #861-2668 Augue Street","3783 QD","Almere","Netherlands","augue@blandit.co.uk","072 2583634","Erin P. Welch"),(5,"Google","410-6341 Mi Avenue","8548 KW","Franeker","Netherlands","imperdiet.dictum.magna@dignissimlacusAliquam.ca","036 7584184","Kameko B. Le"),(6,"Expert","P.O. Box 849, 7545 Ultrices Ave","9386 BV","Almere","Netherlands","arcu.imperdiet.ullamcorper@egetmagnaSuspendisse.ca","034 9886059","Lucius Castaneda"),(7,"BCC","399-3339 Iaculis St.","5754 PF","Lelystad","Netherlands","amet.ante.Vivamus@miacmattis.edu","050 3932086","Ryan R. Terry"),(8,"Events","Ap #604-2619 Et St.","6063 IS","Sluis","Netherlands","consequat@auctor.edu","074 1023191","Caldwell P. Rogers"),(9,"Google","2757 Cras St.","7995 UI","Deventer","Netherlands","et@atpedeCras.co.uk","019 3657143","Vance G. Guerrero"),(10,"BCC","Ap #796-3350 Amet, Road","4430 NQ","Oosterhout","Netherlands","semper@utaliquam.edu","084 1764858","Orla Kirkland");
 
 
 /*
