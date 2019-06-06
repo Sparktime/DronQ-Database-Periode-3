@@ -25,43 +25,17 @@ try {
 // enable error messages
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-// function to call after execution of statement
-function checkSQL($stmt)
-{
-   $info = $stmt->errorInfo();
-    if ($info[0] != '00000') {
-        echo $info[2];
-        exit;
-    }
-}
 
-//function checkSQL($stmt)
+
+//  Create a popup alart for the SQL error`s
+
+function checkSQL($stmt)
 {
     $info = $stmt->errorInfo();
     if ($info[0] != '00000') {
-        $x = $info[2];
-        echo '<script type='text/javascript'>';
-        echo 'error(x);';
-        echo '</script>";';
+        echo "<script type='text/javascript'>alert(\"$info[2]\");</script>";
+
 
        exit;
     }
 }
-
-?>
-
-<script type="text/JavaScript">
-    function error(x) {
-
-        var txt;
-        var r = confirm("You Fucked Up Son!");
-        if (r == true) {
-            var myWindow = window.open("<?=$_SESSION['list']?>//", "_self")
-            txt = "Return to list";
-        } else {
-            txt = "Show Error";
-            window.alert(x);
-        }
-    }
-
-</script>

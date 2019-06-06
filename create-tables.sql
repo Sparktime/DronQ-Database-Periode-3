@@ -29,12 +29,12 @@ CREATE TABLE `PRODUCT` (
 --     `Contact_Person` VARCHAR(40)
 -- ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-CREATE TABLE `USER` (
-	`Email`  VARCHAR(40) PRIMARY KEY,
-	`PasswordHash` VARCHAR(256),
-    `Salt` VARCHAR(256),
-    `Level` INT
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+-- CREATE TABLE `USER` (
+-- 	`Email`  VARCHAR(40) PRIMARY KEY,
+-- 	`PasswordHash` VARCHAR(256),
+--     `Salt` VARCHAR(256),
+--     `Level` INT
+-- ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
 CREATE TABLE `CUSTOMER` (
@@ -67,15 +67,11 @@ CREATE TABLE `ORDER` (
     `OrderStatus` VARCHAR(40),
     `Employee` VARCHAR(40),
     `Serial_No` INT UNIQUE,
-   `Reseller_ID` INT,
    `Customer_ID` INT,
+
     CONSTRAINT `FK_SerialNo`
     FOREIGN KEY(`Serial_No`) REFERENCES `PRODUCT` (`Serial_No`),
-    
---
---     CONSTRAINT `FK_ReselID`
---     FOREIGN KEY(`Reseller_ID`) REFERENCES `RESELLER` (`Reseller_ID`),
-    
+
     CONSTRAINT `FK_CustID`
     FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
     ON UPDATE CASCADE
@@ -88,8 +84,8 @@ USER
 ===========================
 */
 
-INSERT INTO `USER` (`Email`, `PasswordHash`, `Salt`, `Level`) VALUES
-("molestie@eleifendCrassed.net","wachtwoord",123456,1),("amet@tincidunt.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("lectus.sit@acturpisegestas.edu","wachtwoord",123456,1),("id.sapien.Cras@Proin.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("orci.sem.eget@nibhPhasellusnulla.edu","wachtwoord",123456,1),("eu@nonenimMauris.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("aliquam@Cumsociisnatoque.edu","wachtwoord",123456,2),("mus.Proin@risus.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("Vivamus.euismod.urna@Cum.org","wachtwoord",123456,2),("montes.nascetur.ridiculus@vitae.edu","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2);
+-- INSERT INTO `USER` (`Email`, `PasswordHash`, `Salt`, `Level`) VALUES
+-- ("molestie@eleifendCrassed.net","wachtwoord",123456,1),("amet@tincidunt.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("lectus.sit@acturpisegestas.edu","wachtwoord",123456,1),("id.sapien.Cras@Proin.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,1),("orci.sem.eget@nibhPhasellusnulla.edu","wachtwoord",123456,1),("eu@nonenimMauris.net","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("aliquam@Cumsociisnatoque.edu","wachtwoord",123456,2),("mus.Proin@risus.co.uk","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2),("Vivamus.euismod.urna@Cum.org","wachtwoord",123456,2),("montes.nascetur.ridiculus@vitae.edu","9c4c4c4db14b6e60a0449a44b8f7dfa0",123456,2);
 
 /*
 ===========================
@@ -126,4 +122,4 @@ ORDER
 ===========================
 */
 
-INSERT INTO `ORDER` (`Order_ID`,`Price`,`OrderDate`,`ShippingDate`,`OrderStatus`,`Employee`,`Serial_No`,`Reseller_ID`,`Customer_ID`) VALUES (1,"1699","2016-05-02 17:34:36","2017-09-18 14:16:46","Paid","Johan",83546000,1,1),(2,"1399","2016-10-30 20:12:02","2018-10-20 03:24:24","Ordered","Wouter",83546001,2,2),(3,"1699","2011-03-10 15:16:19","2011-04-16 23:51:43","Delivered","Wouter",83546002,3,3),(4,"1399","2013-12-09 13:34:47","2013-05-17 03:34:33","Shipped","Kevin",83546003,4,4),(5,"1699","2011-09-30 12:24:26","2010-07-01 10:41:23","Ordered","Kevin",83546004,5,5),(6,"1699","2017-09-13 02:20:18","2011-03-14 21:04:24","Delivered","Jos",83546005,6,6),(7,"1399","2015-02-08 16:17:15","2013-10-04 22:52:11","Paid","Jos",83546006,7,7),(8,"1699","2013-07-26 19:19:49","2018-01-24 20:46:53","Paid","Kevin",83546007,8,8),(9,"1399","2015-07-29 00:31:55","2018-04-03 04:58:31","Delivered","Wouter",83546008,9,9),(10,"1699","2015-11-13 14:11:03","2017-08-13 19:57:51","Paid","Kevin",83546009,10,10);
+INSERT INTO `ORDER` (`Order_ID`,`Price`,`OrderDate`,`ShippingDate`,`OrderStatus`,`Employee`,`Serial_No`,`Customer_ID`) VALUES (1,"1699","2016-05-02 17:34:36","2017-09-18 14:16:46","Paid","Johan",83546000,1),(2,"1399","2016-10-30 20:12:02","2018-10-20 03:24:24","Ordered","Wouter",83546001,2),(3,"1699","2011-03-10 15:16:19","2011-04-16 23:51:43","Delivered","Wouter",83546002,3),(4,"1399","2013-12-09 13:34:47","2013-05-17 03:34:33","Shipped","Kevin",83546003,4),(5,"1699","2011-09-30 12:24:26","2010-07-01 10:41:23","Ordered","Kevin",83546004,5),(6,"1699","2017-09-13 02:20:18","2011-03-14 21:04:24","Delivered","Jos",83546005,6),(7,"1399","2015-02-08 16:17:15","2013-10-04 22:52:11","Paid","Jos",83546006,7),(8,"1699","2013-07-26 19:19:49","2018-01-24 20:46:53","Paid","Kevin",83546007,8),(9,"1399","2015-07-29 00:31:55","2018-04-03 04:58:31","Delivered","Wouter",83546008,9),(10,"1699","2015-11-13 14:11:03","2017-08-13 19:57:51","Paid","Kevin",83546009,10);
