@@ -26,7 +26,7 @@
                 <a href="product-list.php" class="nav-link">Products</a>
             </li>
             <li class="nav-item">
-                <a href="order-list.php" class="nav-link">Orders</a>
+                <a href="cart-list.php" class="nav-link">Orders</a>
             </li>
             <li class="nav-item">
                 <button type="button"
@@ -34,22 +34,6 @@
                 </button>
             </li>
         </ul>
-
-        <!-- navbar right
-                <ul class="navbar-nav ml-auto">
-                    <div class="dropdown">
-                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"></i>
-                      <span class="caret"></span></button>
-
-                      <ul class="dropdown-menu">
-                        <li><a class="btn btn-primary" href=".php">Register</a></li>
-                        <li><a href="login.php">Login</a></li>
-                      </ul>
-                    </div>
-                    <a class="btn btn-primary navbar-btn" ></a>
-                    <a class="btn btn-primary navbar-btn" href="#"></a>
-                </ul>-->
-
 
         <div class="btn-group" role="group">
             <a type="button" class="btn btn-primary" href="register.php"><i class="fas fa-user"></i> Register</a>

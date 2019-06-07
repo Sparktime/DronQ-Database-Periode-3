@@ -2,17 +2,6 @@
 require 'db.php';
 require 'cartController.php';
 
-//// get url parameter
-//$Order_ID = $_GET['Order_ID'];
-
-//// get record
-//$sql = "SELECT * FROM `ORDER` WHERE `Order_ID` = ?";
-//$stmt = $pdo->prepare($sql);
-//$stmt->execute([$Order_ID]);
-//checkSQL($stmt);
-//
-//$row = $stmt->fetch(PDO::FETCH_OBJ);
-
 $order = new cartController($pdo);
 $row = $order->get($_GET['Order_ID']);
 
@@ -38,7 +27,7 @@ $row = $order->get($_GET['Order_ID']);
                             <a href= "database.php" class="nav-link navbar-brand" >Home</a>
                         </li>
                     	<li class="nav-item">		     
-				            <a href= "order-list.php" class="nav-link" >Orders</a>
+				            <a href= "cart-list.php" class="nav-link" >Orders</a>
                         </li>  
                         <li class="nav-item">
 				            <button title="save" type="submit" class="btn btn-primary navbar-btn" >Save</button>

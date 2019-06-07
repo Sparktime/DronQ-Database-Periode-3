@@ -10,20 +10,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar">
     <?php require 'menu.inc.php';?>
-	<!--	
-            
-   <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-                <a type="button" href="http://dronq.thuis.io/webstore.php" class="btn  btn-warning">Webstore</a>
-           </li>
-            <li class="nav-item">		     
-				<a type="button" href="http://dronq.thuis.io/database.php" class="btn  btn-warning">Database</a>
-            </li>
-			<li class="nav-item">
-				<a type="button" href="#orderform" type="submit" class="btn btn-block btn-xs btn-primary js-scroll-trigger">Pre-order</a>
-            </li>
-          </ul> -->
     </nav>
 
 	

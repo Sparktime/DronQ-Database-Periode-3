@@ -1,17 +1,13 @@
 <?php
 // UTF-8 NΟ BOM
 session_start();
-$_SESSION['list'] = 'order-list.php';
+$_SESSION['list'] = 'cart-list.php';
 
 include 'db.php';
 require 'cartController.php';
 
 $list = new cartController($pdo);
 $rs = $list-> getAll();
-
-//// get result set
-//$sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
-//$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 
 ?>
 
@@ -55,7 +51,7 @@ $rs = $list-> getAll();
             <!-- PHP Database -->
             <?php while ($row = $rs->fetch()) { ?>
             <tr>
-                <td><a title="edit" href="order-edit.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
+                <td><a title="edit" href="cart-edit.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
                 <td><?= $row->Order_ID ?></td>
                 <td><?= $row->Price ?></td>
                 <td><?= $row->OrderDate ?></td>

@@ -27,4 +27,4 @@ if($_GET['action'] == 'save'){
     $save->save($_POST['Order_ID'], $_POST);
 }
 
-header('location: order-list.php');
+header('location: cart-list.php');
