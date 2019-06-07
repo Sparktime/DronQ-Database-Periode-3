@@ -36,7 +36,7 @@
     <!-- Register -->
             <div class="col-sm-6 mx-auto">
                 <h1>Register</h1>
-                <form method="post" action="register-new.php">
+                <form method="post" action="userManager.php?action=register">
                     <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <label for="email">Email:</label>
                         <input type="text" class="form-control" placeholder="Enter Email" name="Email">

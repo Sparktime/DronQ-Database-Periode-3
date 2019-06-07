@@ -38,7 +38,7 @@ $row = $user->get($_GET['Customer_ID']);
             <div class="container col-xl-12">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href= "database.php" class="nav-link navbar-brand" >Home</a>
+                        <a href= "index.php" class="nav-link navbar-brand" >Home</a>
                     </li>
                     <li class="nav-item">		     
 				        <a href= "customer-list.php" class="nav-link" >Customers</a>

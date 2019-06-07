@@ -36,27 +36,11 @@ $rs = $webstore->getAll();
                         <div class="col-lg-6 my-auto showcase-text">
                             <h2><?= $row->Name ?></h2>
                             <p class="lead mb-0"><?= $row->Text ?></p>
-                            <p><?= $row->Specs ?></p>
                             <p><?= $row->Price ?></p>
 
                         </div>
                     </div>
                 <?php } ?>
-
-                <a href="product.php" class="stretched-link">
-                    <div class="row">
-                        <div class="col-lg-6 text-white showcase-img"
-                             style="background-image: url('img/red-drone.jpg');">
-                        </div>
-                        <div class="col-lg-6 my-auto showcase-text">
-                            <h2>DronQ Drone V1 - Red</h2>
-                            <p class="lead mb-0">This red colored drone is one off the first products off DronQ
-                                Industies.</p>
-                            <p>Go to Product</p>
-                        </div>
-                    </div>
-                </a>
-
 
             </div>
         </div>

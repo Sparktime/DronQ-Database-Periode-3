@@ -25,7 +25,7 @@ $row = $product->get($_GET['Serial_No']);
             <div class="container col-xl-12">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href= "database.php" class="nav-link navbar-brand" >Home</a>
+                        <a href= "index.php" class="nav-link navbar-brand" >Home</a>
                     </li>
                     <li class="nav-item">		     
 				        <a href= "product-list.php" class="nav-link" >Product</a>

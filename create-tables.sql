@@ -82,7 +82,20 @@ PRODUCTINFO
 ===========================
 */
 
-INSERT INTO `PRODUCTINFO` (`Name`,`Type`,`Text`,`Infotext` ,`Specs`,`Price`,`IMG`)VALUES ("DronQ Drone","DronqDroneV1", "de normalen text voor op webstore", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ante felis, gravida feugiat tellus sit amet, aliquam pretium erat. Proin faucibus, odio convallis luctus porttitor, nunc ex ornare eros, in tristique odio ex vitae nisl. Ut mi nisi, commodo at neque vitae, vestibulum pretium mauris. Nulla quam sapien, iaculis in neque ac, euismod aliquet nisl. Praesent sit amet elit eget lorem ornare sagittis a et lorem. Mauris vulputate enim ut mauris aliquam, nec tempus purus scelerisque. Vivamus a lorem et dolor venenatis posuere. Vivamus pellentesque vel lacus non placerat. Maecenas pretium ex fermentum, condimentum orci vel, dictum neque. Quisque eget diam purus. Phasellus bibendum sapien vel diam tincidunt pharetra.","Aliquam erat volutpat. Curabitur facilisis ac augue et finibus. Mauris vel imperdiet justo. Nulla dolor magna, congue vel quam a, lobortis mattis odio. Morbi eu elit hendrerit libero efficitur congue sit amet sit amet dolor. Suspendisse potenti. Quisque sit amet placerat purus. Curabitur tempus porttitor nibh ac pharetra. Sed posuere, quam id lobortis mollis, nunc quam ultrices tortor, eget laoreet neque magna nec odio. Ut velit ante, posuere sagittis ante vitae, tincidunt sodales velit. Curabitur interdum odio ipsum, nec vestibulum arcu viverra condimentum. Vestibulum pellentesque justo et urna volutpat, nec vestibulum ipsum eleifend.",999,"/img/productInfo/drone.jpg"), ("DronQ Fridge","DronqFridgeV1", "webstore text", "Wat een mooie drone","Hallo dit is goeie specs drone",699,"/img/productInfo/fridge.jpg"), ("DronQ Set","DronqSetV1", "webstore text", "Wat een mooie drone","Hallo dit is goeie specs drone",1399,"/img/productInfo/set.jpg");
+INSERT INTO `PRODUCTINFO` (`Name`,`Type`,`Text`,`Infotext` ,`Specs`,`Price`,`IMG`)VALUES
+("DronQ Drone","DronqDroneV1","This well-designed drone is the first to bring you a cold beverage while sitting in your lazy chair. Because of the safety around the propellers which makes it very safe to use it in and around the house. Even when there are children playing. ", "The drone is built with an Al-chip attached to smart sensors to avoid all kind of obstacles. With the specially designed battery technology it will never run out of power to get the ice-cold beverage to its user. It will find you exact location using your phone location, this unique futuristic technology is one of a kind. When combined with the app you can see beverage stock, battery life and temperature of the fridge. Therefore, this product will make your life more completed than it has ever been before. Be one of the first to get DronQ. Steal the show and impress your friends, family and colleges with this insane product.","Hallo dit is goeie specs drone",
+ 999,
+ "/img/productInfo/drone.jpg"),
+("DronQ Fridge","DronqFridgeV1",
+ "The custom build fridge will cool the canned beverages containing 33cl and 18 cans at a time. They will be at the best temperature for a hot summer day. With a single touch in the app the drone will bring you these beverages fresh from the fridge.",
+"Because of the automatic output of the cans there is no need to leave the fridge open. The drone will land at top of the fridge so it will save space in your house. When the drone is on top it will automatic start recharging the battery.",
+ "Hallo dit is goeie specs drone",400,"/img/productInfo/fridge.jpg"),
+("DronQ Set","DronqSetV1",
+ "A set is the DronQ drone combined with the DronQ fridge of the same color, this makes it the cheapest option with a combined price of €1399, -.",
+ "This well-designed drone is the first to bring you a cold beverage while sitting in your lazy chair.
+Because of the safety around the propellers which makes it very safe to use it in and around the house. Even when there are children playing.
+The custom build fridge will cool the canned beverages containing 33cl and 18 cans at a time. They will be at the best temperature for a hot summer day. With a single touch in the app the drone will bring you these beverages fresh from the fridge.",
+ "Hallo dit is goeie specs drone",1399,"/img/productInfo/set.jpg");
 
 /*
 ===========================

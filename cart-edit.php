@@ -24,7 +24,7 @@ $row = $order->get($_GET['Order_ID']);
                 <div class="container col-xl-12">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href= "database.php" class="nav-link navbar-brand" >Home</a>
+                            <a href= "index.php" class="nav-link navbar-brand" >Home</a>
                         </li>
                     	<li class="nav-item">		     
 				            <a href= "cart-list.php" class="nav-link" >Orders</a>
