@@ -35,6 +35,7 @@ class userController
             return $session;
         }
     }
+
     public function login($email, $password)
     {
 
@@ -54,7 +55,9 @@ class userController
             checkSQL($stmt2);
             $customerid = $stmt2->fetch(PDO::FETCH_OBJ);
             $id = $customerid->Customer_ID;
+
 // Check AdminLevel
+
             $sql3 = "SELECT `AdminLevel`  FROM `CUSTOMER` WHERE `Email` = ?";
             $stmt3 = $this->pdo->prepare($sql3);
             $stmt3->execute([$email]);
@@ -62,27 +65,33 @@ class userController
             $adminlevel = $stmt3->fetch(PDO::FETCH_OBJ);
             $level = $adminlevel->AdminLevel;
 
-            if ($level == 1){
-                $_SESSION['level'] = admin;
-            }
-
             // Set Session ID
             $_SESSION['customerid'] = $id;
-            header('location: customer-edit.php?Customer_ID=' . $id);
-        } else {
-            echo 'Invalid password.';
+
+
+            if ($level == 1) {
+
+                $_SESSION['level'] = admin;
+
+                header('location: customer-list.php');
+
+            } else {
+                echo 'Invalid password.';
+
+
+            }
         }
-
     }
-
 
     public function create()
     {
 
-        $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate) VALUES('','','','','','','','','',CURDATE())";
+        $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate, Adminlevel) VALUES('','','','','','','','','',CURDATE(),0)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['PasswordHash'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
+        $stmt->execute();
         checkSQL($stmt);
+        $newid = $this->pdo->lastInsertId();
+        header('location: customer-edit.php?Customer_ID=' . $newid);
 
     }
 
@@ -102,10 +111,11 @@ class userController
         }
     }
 
-    public function save($id, $data){
-        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ? WHERE Customer_ID = ?";
+    public function save($id, $data)
+    {
+        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ?, AdminLevel = ? WHERE Customer_ID = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $id]);
+        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $data['AdminLevel'], $id]);
         checkSQL($stmt);
 
         // return to list

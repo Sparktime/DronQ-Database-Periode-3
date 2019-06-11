@@ -31,7 +31,7 @@ require 'userController.php';
 
 
 $login = new userController($pdo);
-$id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with customerin DB
+$id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with customer in DB
 if(isset($id))
     header('location: customer-edit.php?Customer_ID='.$id); //redirect to edit with customer ID
 

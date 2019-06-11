@@ -59,17 +59,17 @@ $row = $order->get($_GET['Order_ID']);
                 </div>
                 <div class="row">
                     <label>Order Date
-                        <input type="text" name="Order Date" value="<?= $row->OrderDate ?>">
+                        <input type="text" name="OrderDate" value="<?= $row->OrderDate ?>">
                     </label>
                             </div>
                 <div class="row">
                     <label>Shipping Date
-                        <input type="text" name="Shipping Date" value="<?= $row->ShippingDate ?>">
+                        <input type="text" name="ShippingDate" value="<?= $row->ShippingDate ?>">
                     </label>
                 </div>
                 <div class="row">
                     <label>Order Status
-                        <input type="text" name="Order Status" value="<?= $row->OrderStatus ?>">
+                        <input type="text" name="OrderStatus" value="<?= $row->OrderStatus ?>">
                     </label>
                 </div>
                 <div class="row">
@@ -79,12 +79,12 @@ $row = $order->get($_GET['Order_ID']);
                 </div>
                 <div class="row">
                     <label>Serial No
-                        <input type="text" name="Serial No" value="<?= $row->Serial_No ?>">
+                        <input type="text" name="Serial_No" value="<?= $row->Serial_No ?>">
                     </label>
                 </div>
                     <div class="row">
                     <label>Customer ID
-                        <input type="text" name="Customer ID" value="<?= $row->Customer_ID ?>">
+                        <input type="text" name="Customer_ID" value="<?= $row->Customer_ID ?>">
                     </label>
                 </div>
             </div>

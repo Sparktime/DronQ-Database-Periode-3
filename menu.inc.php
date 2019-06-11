@@ -12,7 +12,7 @@
             </li>
 
 
-            <?php if($_SESSION['list'] == 'index.php') {
+            <?php if ($_SESSION['list'] == 'index.php') {
                 echo '<li class="nav-item">
                 <a href="#info" class="nav-link js-scroll-trigger">Info</a>
             </li>
@@ -23,25 +23,24 @@
             ?>
 
 
-
             <li class="nav-item">
                 <a href="webstore.php" class="navbar-brand">Webstore</a>
             </li>
 
-            <?php if(isset($_SESSION['level'])) {
+            <?php if (isset($_SESSION['level'])) {
                 echo '<li class="nav-item">
                 <a href="customer-list.php" class="nav-link">Users</a>
             </li>';
             }
             ?>
 
-            <?php if(isset($_SESSION['level'])) {
+            <?php if (isset($_SESSION['level'])) {
                 echo '<li class="nav-item">
                 <a href="product-list.php" class="nav-link">Products</a>
             </li>';
             }
             ?>
-            <?php if(isset($_SESSION['level'])) {
+            <?php if (isset($_SESSION['level'])) {
                 echo '<li class="nav-item">
                 <a href="cart-list.php" class="nav-link">Orders</a>
             </li>';
@@ -55,13 +54,26 @@
         </ul>
 
         <div class="btn-group" role="group">
+
+                <?php if (isset($_SESSION['customerid'])): ?>
+                <a type="button" class="btn btn-primary" href="customer-edit.php?Customer_ID=<?= $_SESSION['customerid'] ?>"><i class="fas fa-user-edit"></i></a>
+            <?php else:?>
             <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>
-<!--            <a type="button" class="btn btn-primary" href="login.php"><i class="fas fa-user"></i> Login</a>-->
-            <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
-           <?php if(isset($_SESSION['customerid'])) {
-            echo '<a type="button" class="btn btn-primary" href="logout.php"><i class="fas fa-user-alt-slash"></i></a>';
+            <?php endif; ?>
+<!--            else {-->
+<!--                echo '<a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>'-->
+<!--            }-->
+<!--            ?>-->
+
+            <?php
+            if (isset($_SESSION['customerid'])) {
+                echo '<a type="button" class="btn btn-primary" href="logout.php"><i class="fas fa-user-alt-slash"></i></a>';
             }
             ?>
+            <!--            <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>-->
+            <!--            <a type="button" class="btn btn-primary" href="login.php"><i class="fas fa-user"></i> Login</a>-->
+            <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
+
             <a type="button" class="btn btn-primary"><i class="fas fa-search"></i></a>
         </div>
 
