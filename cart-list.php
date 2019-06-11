@@ -8,7 +8,6 @@ require 'cartController.php';
 
 $list = new cartController($pdo);
 $rs = $list-> getAll();
-
 ?>
 
 

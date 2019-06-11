@@ -1,3 +1,16 @@
+<?php
+// UTF-8 NΟ BOM
+session_start();
+$_SESSION['list'] = 'cartGUI.php';
+
+include 'db.php';
+require 'cartController.php';
+
+$list = new cartController($pdo);
+$rs = $list-> getAll();
+?>
+
+
 <DOCTYPE html>
 <html lang="nl">
 
@@ -18,32 +31,23 @@
             <h1>Shopping Cart</h1>
             
         <table class="table">
-            <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-             </tr>
-             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-             </tr>
-             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-             </tr>
-            </table>
+                    <tr>  
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    <!-- PHP Database -->
+                    <?php while ($row = $rs->fetch()) { ?>
+                    <tr>
+                        <td><img src="?= $row->Img ?"></td>
+                        <td><?= $row->Type ?></td>
+                        <td>1</td>
+                        <td><a title="delete" href="cartManager.php?action=delete&Order_ID=<?= $row->Type ?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+                <?php } ?>
+        </table>
   
             <div>
                 <button type="button" class="btn btn-success float-right">Checkout</button>
