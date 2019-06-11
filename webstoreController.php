@@ -18,7 +18,6 @@ class webstoreController
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$Type]);
         checkSQL($stmt);
-
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
