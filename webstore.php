@@ -29,23 +29,25 @@ $rs = $webstore->getAll();
         <div class="container-fluid">
             <div class="col-xl-9 mx-auto">
                 <?php while ($row = $rs->fetch()) { ?>
-                <a href="product.php?Type=<?= $row->Type ?>">
+                
 
                     <div class="row">
-                        <div class="col-lg-6 text-white showcase-img"
-                             style="background-image: url('<?= $row->IMG ?>');">
+                        <div class="col-lg-6">
+                            <a href="product.php?Type=<?= $row->Type ?>">
+                                <img src="<?= $row->IMG ?>" class="img-responsive" >
+                            </a>
                         </div>
                         <div class="col-lg-6 my-auto showcase-text">
-                            <h2><?= $row->Name ?></h2>
+                            <a href="product.php?Type=<?= $row->Type ?>">
+                                <h2><?= $row->Name ?></h2>
+                            </a> 
                             <p class="lead mb-0"><?= $row->Text ?></p>
                             <p></p>
-                            <h3><?= $row->Price ?></h3>
-
+                            <h3>€ <?= $row->Price ?>,-</h3>
+                            <button href="product.php?Type=<?= $row->Type ?>" type="button" class="btn btn-primary float-right">+ Add to cart</button>
                         </div>
                     </div>
-                </a>
-                    <?php } ?>
-
+                <?php } ?>
             </div>
         </div>
     </section>

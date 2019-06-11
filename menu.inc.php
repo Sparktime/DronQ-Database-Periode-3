@@ -38,7 +38,7 @@
         <div class="btn-group" role="group">
             <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>
 <!--            <a type="button" class="btn btn-primary" href="login.php"><i class="fas fa-user"></i> Login</a>-->
-            <a type="button" class="btn btn-primary" href="shoppingcart.php"><i class="fas fa-shopping-cart"></i></a>
+            <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
             <a type="button" class="btn btn-primary"><i class="fas fa-search"></i></a>
         </div>
 
