@@ -1,3 +1,12 @@
+<?php
+session_start();
+require 'db.php';
+require 'webstoreController.php';
+
+$webstore = new webstoreController($pdo);
+$rs = $webstore->get($_SESSION['Type']);
+?>
+
 <DOCTYPE html>
 <html lang="nl">
 
@@ -13,6 +22,32 @@
         <?php require 'menu.inc.php'; ?>
     </nav>
 
+    
+    <section class="showcase about-section">
+
+        <div class="container-fluid">
+            <div class="col-xl-9 mx-auto">
+                <?php while ($row = $rs->fetch()) { ?>
+                    <div class="row">
+                        <div class="col-lg-6 text-white showcase-img"
+                             style="background-image: url('<?= $row->IMG ?>');">
+                        </div>
+                        <div class="col-lg-6 my-auto showcase-text">
+                            <h2><?= $row->Name ?></h2>
+                            <p class="lead mb-0"><?= $row->Text ?></p>
+                            <p><?= $row->Price ?></p>
+
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
     
     
     <?php require 'footer.php';?>

@@ -28,6 +28,7 @@ $rs = $webstore->getAll();
 
         <div class="container-fluid">
             <div class="col-xl-9 mx-auto">
+                <a href="product.php">
                 <?php while ($row = $rs->fetch()) { ?>
                     <div class="row">
                         <div class="col-lg-6 text-white showcase-img"
@@ -36,12 +37,13 @@ $rs = $webstore->getAll();
                         <div class="col-lg-6 my-auto showcase-text">
                             <h2><?= $row->Name ?></h2>
                             <p class="lead mb-0"><?= $row->Text ?></p>
-                            <p><?= $row->Price ?></p>
-
+                            <p></p>
+                            <h3><?= $row->Price ?></h3>
+                            <?php $_SESSION['type'] = $row->Type ?>
                         </div>
                     </div>
                 <?php } ?>
-
+                </a>
             </div>
         </div>
     </section>
