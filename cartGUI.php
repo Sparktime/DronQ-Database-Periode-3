@@ -1,7 +1,3 @@
-<?php
-session_start();
-$_SESSION['level'] = admin;
-?>
 <DOCTYPE html>
 <html lang="nl">
 

@@ -48,6 +48,7 @@ $rs = $list-> getAll();
                 <th>Telephone</th>
                 <th>Date of Birth</th>
                 <th>Registration Date</th>
+                <th>Admin Level</th>
                 <th>Delete</th>
             </tr>
             
@@ -66,6 +67,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Telephone ?></td>
                 <td><?= $row->Day_Of_Birth ?></td>
                 <td><?= $row->RegistrationDate ?></td>
+                <td><?= $row->AdminLevel ?></td>
                 <td><a title="delete" href="userManager.php?action=delete&Customer_ID=<?= $row->Customer_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>

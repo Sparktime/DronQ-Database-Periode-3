@@ -46,6 +46,7 @@ class userController
         $hash = $stmt->fetch(PDO::FETCH_OBJ);
         $test = $hash->PasswordHash;
 
+        // Check Password/Email combination
         if (password_verify($password, $test)) {
             $sql2 = "SELECT `Customer_ID`  FROM `CUSTOMER` WHERE `Email` = ?";
             $stmt2 = $this->pdo->prepare($sql2);
@@ -53,9 +54,20 @@ class userController
             checkSQL($stmt2);
             $customerid = $stmt2->fetch(PDO::FETCH_OBJ);
             $id = $customerid->Customer_ID;
+// Check AdminLevel
+            $sql3 = "SELECT `AdminLevel`  FROM `CUSTOMER` WHERE `Email` = ?";
+            $stmt3 = $this->pdo->prepare($sql3);
+            $stmt3->execute([$email]);
+            checkSQL($stmt3);
+            $adminlevel = $stmt3->fetch(PDO::FETCH_OBJ);
+            $level = $adminlevel->AdminLevel;
 
+            if ($level == 1){
+                $_SESSION['level'] = admin;
+            }
+
+            // Set Session ID
             $_SESSION['customerid'] = $id;
-
             header('location: customer-edit.php?Customer_ID=' . $id);
         } else {
             echo 'Invalid password.';

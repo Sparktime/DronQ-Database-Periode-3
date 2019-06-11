@@ -40,7 +40,8 @@ CREATE TABLE `CUSTOMER` (
     `PasswordHash` VARCHAR(255),
     `Telephone` VARCHAR(40),
     `Day_Of_Birth` DATE,
-    `RegistrationDate` DATE
+    `RegistrationDate` DATE,
+    `AdminLevel` BIT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
@@ -103,8 +104,20 @@ CUSTOMER
 ===========================
 */
 
-INSERT INTO `CUSTOMER` (`Customer_ID`,`Customer_Surname`,`Customer_Firstname`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Day_Of_Birth`,`RegistrationDate`) VALUES 
-(1,"Glenn","Gage","P.O. Box 996, 2281 Lacus. Rd.","3315 KG","Tilburg","Netherlands","molestie@eleifendCrassed.net","045 6856052","1985-11-07 14:37:33","2019-03-01 09:10:58"),(2,"Morin","Francis","730-5527 Eleifend, Rd.","0260 BR","Alkmaar","Netherlands","amet@tincidunt.co.uk","089 5303231","1971-03-09 15:57:53","2019-05-23 00:28:56"),(3,"Marquez","Jamalia","Ap #795-9574 Praesent Rd.","6524 IS","Terneuzen","Netherlands","lectus.sit@acturpisegestas.edu","047 4571372","1994-02-10 00:21:35","2019-05-15 07:51:42"),(4,"Greer","Kenyon","6696 Sit Street","4898 MM","Wijshagen","Netherlands","id.sapien.Cras@Proin.net","069 4389762","2000-01-31 09:37:41","2018-03-13 07:52:20"),(5,"Perry","Hayes","801-7835 Nullam Street","3480 YS","Helmond","Netherlands","orci.sem.eget@nibhPhasellusnulla.edu","071 2905282","1973-01-29 11:29:59","2019-02-17 05:21:56"),(6,"Hanson","Kylie","P.O. Box 858, 9201 Dui St.","1814 RM","Hindeloopen","Netherlands","eu@nonenimMauris.net","054 3042094","1977-05-15 22:09:35","2019-04-19 09:43:25"),(7,"Briggs","Rooney","P.O. Box 935, 2184 Morbi St.","3754 JD","Zierikzee","Netherlands","aliquam@Cumsociisnatoque.edu","073 2573899","1983-06-27 04:44:11","2018-05-20 18:41:27"),(8,"Flowers","Aphrodite","988-1380 A St.","2672 QA","Deventer","Netherlands","mus.Proin@risus.co.uk","029 3947430","1962-12-25 13:59:29","2019-07-08 05:56:54"),(9,"Saunders","Calista","9472 Varius. Street","1396 DG","Haren","Netherlands","Vivamus.euismod.urna@Cum.org","089 1223756","1991-08-18 10:17:53","2019-11-05 06:09:04"),(10,"Parrish","Rylee","P.O. Box 814, 3491 Lectus Avenue","2882 ED","Ellikom","Netherlands","montes.nascetur.ridiculus@vitae.edu","027 9908820","2003-03-23 02:29:34","2017-12-27 16:06:36");
+INSERT INTO `CUSTOMER` (`Customer_ID`,`Customer_Surname`,`Customer_Firstname`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Day_Of_Birth`,`RegistrationDate`,`AdminLevel`) VALUES
+(1,"Glenn","Gage","P.O. Box 996, 2281 Lacus. Rd.","3315 KG","Tilburg","Netherlands","molestie@eleifendCrassed.net","045 6856052","1985-11-07 14:37:33","2019-03-01 09:10:58",0),
+(2,"Morin","Francis","730-5527 Eleifend, Rd.","0260 BR","Alkmaar","Netherlands","amet@tincidunt.co.uk","089 5303231","1971-03-09 15:57:53","2019-05-23 00:28:56",0),
+(3,"Marquez","Jamalia","Ap #795-9574 Praesent Rd.","6524 IS","Terneuzen","Netherlands","lectus.sit@acturpisegestas.edu","047 4571372","1994-02-10 00:21:35","2019-05-15 07:51:42",0),
+(4,"Greer","Kenyon","6696 Sit Street","4898 MM","Wijshagen","Netherlands","id.sapien.Cras@Proin.net","069 4389762","2000-01-31 09:37:41","2018-03-13 07:52:20",0),
+(5,"Perry","Hayes","801-7835 Nullam Street","3480 YS","Helmond","Netherlands","orci.sem.eget@nibhPhasellusnulla.edu","071 2905282","1973-01-29 11:29:59","2019-02-17 05:21:56",0),
+(6,"Hanson","Kylie","P.O. Box 858, 9201 Dui St.","1814 RM","Hindeloopen","Netherlands","eu@nonenimMauris.net","054 3042094","1977-05-15 22:09:35","2019-04-19 09:43:25",0),
+(7,"Briggs","Rooney","P.O. Box 935, 2184 Morbi St.","3754 JD","Zierikzee","Netherlands","aliquam@Cumsociisnatoque.edu","073 2573899","1983-06-27 04:44:11","2018-05-20 18:41:27",0),
+(8,"Flowers","Aphrodite","988-1380 A St.","2672 QA","Deventer","Netherlands","mus.Proin@risus.co.uk","029 3947430","1962-12-25 13:59:29","2019-07-08 05:56:54",0),
+(9,"Saunders","Calista","9472 Varius. Street","1396 DG","Haren","Netherlands","Vivamus.euismod.urna@Cum.org","089 1223756","1991-08-18 10:17:53","2019-11-05 06:09:04",0),
+(10,"Parrish","Rylee","P.O. Box 814, 3491 Lectus Avenue","2882 ED","Ellikom","Netherlands","montes.nascetur.ridiculus@vitae.edu","027 9908820","2003-03-23 02:29:34","2017-12-27 16:06:36",0);
+
+INSERT INTO `CUSTOMER` (`Customer_ID`, `Email`, `PasswordHash`, `AdminLevel`)  VALUES
+(11,"admin@admin.com","$2y$10$sKOBjoYET6Gp8kyBnsHREuJGVpEmyzMpcC/nYMVc9I87zKO7mG6ZW",1);
 
 
 
