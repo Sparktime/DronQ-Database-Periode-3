@@ -2,6 +2,8 @@
 require 'db.php';
 require 'productController.php';
 
+$_SESSION['list'] = 'product-edit.php';
+
 $product = new productController($pdo);
 $row = $product->get($_GET['Serial_No']);
 

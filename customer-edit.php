@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['customerid'] != $_GET['Customer_ID'] && $_SESSION['level'] != admin)
     header('location: customer-edit.php?Customer_ID=' . $_SESSION['customerid']);
-
+$_SESSION['list'] = 'customer-edit.php';
 require 'db.php';
 require 'userController.php';
 // get url parameter

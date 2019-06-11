@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$_SESSION['list'] = 'webstore.php';
+
+
 require 'db.php';
 require 'webstoreController.php';
 

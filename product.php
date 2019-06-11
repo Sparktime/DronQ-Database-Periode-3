@@ -1,6 +1,10 @@
 <?php
 session_start();
 require 'db.php';
+
+$_SESSION['list'] = 'product.php';
+
+
 require 'webstoreController.php';
 
 $product = new webstoreController($pdo);
