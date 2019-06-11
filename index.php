@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+$_SESSION['list'] = 'index.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

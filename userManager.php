@@ -21,12 +21,20 @@ if($_GET['action'] == 'delete') {
 }
 
     //  SAVE CUSTOMER EDIT //
-if($_GET['action'] == 'save'){
+if($_GET['action'] == 'save') {
 
     $save = new userController($pdo);
     $save->save($_POST['Customer_ID'], $_POST);
+
+    if (isset($_SESSION['level'])) {
+        header('location: customer-list.php');
+    } else {
+        header('location: .');
+
+    }
 }
-header('location: customer-list.php');
+
+//header('location: customer-list.php');
 
     // REGISTER NEW CUSTOMER //
 
