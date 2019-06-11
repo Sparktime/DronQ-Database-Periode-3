@@ -9,6 +9,8 @@ if($_GET['action'] == 'create') {
 
     $create = new userController($pdo);
     $create->create();
+
+
 }
 
     // DELETE CUSTOMER //
