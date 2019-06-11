@@ -38,7 +38,7 @@ $rs = $webstore->getAll();
                     <div class="row">
                         <div class="col-lg-6">
                             <a href="product.php?Type=<?= $row->Type ?>">
-                                <img src="<?= $row->IMG ?>" class="img-responsive" >
+                                <img src="<?= $row->IMG ?>" width=600 height=400" >
                             </a>
                         </div>
                         <div class="col-lg-6 my-auto showcase-text">

@@ -30,8 +30,8 @@ $rs = $list-> getAll();
         </nav>
         
 <div class="col-xl-12 mx-auto container-fluid">
-        <h1>Customers</h1>
-        <a href = "userManager.php?action=create" title="add a record" class="btn btn-success navbar-btn">New Customer</a>
+        <h1>User</h1>
+        <a href = "userManager.php?action=create" title="add a record" class="btn btn-success navbar-btn">New user</a>
     
         <!-- show result set -->
         <table class="table">
