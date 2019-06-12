@@ -74,6 +74,12 @@ class userController
                 $_SESSION['level'] = admin;
 
                 header('location: customer-list.php');
+            }
+            elseif ($level == 0) {
+
+                $_SESSION['level'] = user;
+
+                header('location: webstore.php');
 
             } else {
                 echo 'Invalid password.';

@@ -29,7 +29,6 @@ require 'userController.php';
 //$customerid = $stmt->fetch()[0];
 //$_SESSION['email'] = $email;
 
-
 $login = new userController($pdo);
 $id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with customer in DB
 if(isset($id))

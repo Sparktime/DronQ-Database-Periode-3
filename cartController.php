@@ -17,12 +17,15 @@ class cartController {
         $stmt->execute();
         checkSQL($stmt);
     }
+
+    
+    
 */
     
   public function create(){
 
-        $sql = "INSERT INTO `CART` (`Customer_ID`,`Name`,`Type`,`Quantity`,`Price`) VALUES
-(1,"DronqQ Set","DronqSetV1",1,1399)";
+        $sql = "INSERT INTO `CART` (Customer_ID, Name, Type, Quantity, Price)
+        VALUES ('','','','','')";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         checkSQL($stmt);
@@ -30,7 +33,7 @@ class cartController {
 
     public function delete($id){
 
-        $sql = 'DELETE FROM `ORDER` WHERE Order_ID = ?';
+        $sql = 'DELETE FROM `CART` WHERE Type = ?';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);

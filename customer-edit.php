@@ -41,9 +41,6 @@ $row = $user->get($_GET['Customer_ID']);
                     <a href="index.php" class="nav-link navbar-brand">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="customer-list.php" class="nav-link">Customers</a>
-                </li>
-                <li class="nav-item">
                     <button title="save" type="submit" class="btn btn-primary navbar-btn">Save</button>
                 </li>
                 <li class="nav-item">
