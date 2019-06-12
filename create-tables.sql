@@ -1,6 +1,7 @@
 ﻿
 -- UTF8 WITH BOM
 
+DROP TABLE IF EXISTS `CART`;
 DROP TABLE IF EXISTS `ORDER`; 
 DROP TABLE IF EXISTS `CUSTOMER`;
 DROP TABLE IF EXISTS `PRODUCTINFO`;
@@ -54,7 +55,7 @@ CREATE TABLE `ORDER` (
     `OrderStatus` VARCHAR(40),
     `Employee` VARCHAR(40),
     `Serial_No` INT UNIQUE,
-   `Customer_ID` INT,
+    `Customer_ID` INT,
 
     CONSTRAINT `FK_SerialNo`
     FOREIGN KEY(`Serial_No`) REFERENCES `PRODUCT` (`Serial_No`),
@@ -63,6 +64,26 @@ CREATE TABLE `ORDER` (
     FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+
+
+CREATE TABLE `CART` (
+    `Customer_ID` INT, 
+    `Name` VARCHAR(40),
+    `Type` VARCHAR(40),
+    `Quantity` INT,
+    `Price` INT
+    
+/*    CONSTRAINT `FK_Type`
+    FOREIGN KEY(`Type`) REFERENCES `PRODUCTINFO` (`Type`),
+
+    CONSTRAINT `FK_CustID`
+    FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
+    
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT
+*/
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
@@ -87,8 +108,8 @@ INSERT INTO `PRODUCTINFO` (`Name`,`Type`,`Text`,`Infotext` ,`Specs`,`Price`,`IMG
 ("DronQ Drone","DronqDroneV1","This well-designed drone is the first to bring you a cold beverage while sitting in your lazy chair. Because of the safety around the propellers which makes it very safe to use it in and around the house. Even when there are children playing. ", "The drone is built with an Al-chip attached to smart sensors to avoid all kind of obstacles. With the specially designed battery technology it will never run out of power to get the ice-cold beverage to its user. It will find you exact location using your phone location, this unique futuristic technology is one of a kind. When combined with the app you can see beverage stock, battery life and temperature of the fridge. Therefore, this product will make your life more completed than it has ever been before. Be one of the first to get DronQ. Steal the show and impress your friends, family and colleges with this insane product.","Hallo dit is goeie specs drone",
  999,
  "/img/productInfo/drone.jpg"),
-("DronQ Fridge","DronqFridgeV1",
- "The custom build fridge will cool the canned beverages containing 33cl and 18 cans at a time. They will be at the best temperature for a hot summer day. With a single touch in the app the drone will bring you these beverages fresh from the fridge.",
+("DronQ Station","DronqStationV1",
+ "The custom build fridge will cool the canned beverages containing 33cl and 18 cans at a time. They will be at the best temperature for a hot summer day. With a single touch in the app the DronQ Drone will bring you these beverages fresh from the fridge.",
 "Because of the automatic output of the cans there is no need to leave the fridge open. The drone will land at top of the fridge so it will save space in your house. When the drone is on top it will automatic start recharging the battery.",
  "Hallo dit is goeie specs drone",400,"/img/productInfo/fridge.jpg"),
 ("DronQ Set","DronqSetV1",
@@ -120,8 +141,6 @@ INSERT INTO `CUSTOMER` (`Customer_ID`, `Email`, `PasswordHash`, `AdminLevel`)  V
 (11,"admin@admin.com","$2y$10$sKOBjoYET6Gp8kyBnsHREuJGVpEmyzMpcC/nYMVc9I87zKO7mG6ZW",1);
 
 
-
-
 /*
 ===========================
 ORDER
@@ -129,3 +148,13 @@ ORDER
 */
 
 INSERT INTO `ORDER` (`Order_ID`,`Price`,`OrderDate`,`ShippingDate`,`OrderStatus`,`Employee`,`Serial_No`,`Customer_ID`) VALUES (1,"1699","2016-05-02 17:34:36","2017-09-18 14:16:46","Paid","Johan",83546000,1),(2,"1399","2016-10-30 20:12:02","2018-10-20 03:24:24","Ordered","Wouter",83546001,2),(3,"1699","2011-03-10 15:16:19","2011-04-16 23:51:43","Delivered","Wouter",83546002,3),(4,"1399","2013-12-09 13:34:47","2013-05-17 03:34:33","Shipped","Kevin",83546003,4),(5,"1699","2011-09-30 12:24:26","2010-07-01 10:41:23","Ordered","Kevin",83546004,5),(6,"1699","2017-09-13 02:20:18","2011-03-14 21:04:24","Delivered","Jos",83546005,6),(7,"1399","2015-02-08 16:17:15","2013-10-04 22:52:11","Paid","Jos",83546006,7),(8,"1699","2013-07-26 19:19:49","2018-01-24 20:46:53","Paid","Kevin",83546007,8),(9,"1399","2015-07-29 00:31:55","2018-04-03 04:58:31","Delivered","Wouter",83546008,9),(10,"1699","2015-11-13 14:11:03","2017-08-13 19:57:51","Paid","Kevin",83546009,10);
+
+/*
+===========================
+CART
+===========================
+*/
+
+INSERT INTO `CART` (`Customer_ID`,`Name`,`Type`,`Quantity`,`Price`) VALUES
+(1,"DronqQ Set","DronqSetV1",1,1399),(4,"DronQ Drone","DronqDroneV1",2,999);
+

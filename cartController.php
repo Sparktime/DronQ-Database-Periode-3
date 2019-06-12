@@ -10,9 +10,19 @@ class cartController {
 
     }
 
-    public function create(){
+/*   public function create(){
 
         $sql = "INSERT INTO `ORDER` (Price, OrderDate, ShippingDate, OrderStatus, Employee) VALUES('',CURDATE(),'','','')";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        checkSQL($stmt);
+    }
+*/
+    
+  public function create(){
+
+        $sql = "INSERT INTO `CART` (`Customer_ID`,`Name`,`Type`,`Quantity`,`Price`) VALUES
+(1,"DronqQ Set","DronqSetV1",1,1399)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         checkSQL($stmt);
@@ -32,6 +42,7 @@ class cartController {
             header('location: .');
         }
     }
+    
 
     public function save($id, $data){
         $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, Customer_ID = ? WHERE Order_ID = ?";
@@ -50,7 +61,7 @@ class cartController {
 
     public function get($id){
         // get record
-        $sql = "SELECT * FROM `ORDER` WHERE `Order_ID` = ?";
+        $sql = "SELECT * FROM `CART` WHERE `Customer_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
@@ -60,7 +71,7 @@ class cartController {
 
     public function getAll(){
         // get result set
-        $sql = "SELECT * FROM `ORDER` ORDER BY `Order_ID` DESC";
+        $sql = "SELECT * FROM `CART` ORDER BY `Customer_ID` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
 

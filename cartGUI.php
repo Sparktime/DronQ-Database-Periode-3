@@ -33,8 +33,9 @@ $rs = $list-> getAll();
         <table class="table">
                     <tr>  
                         <th>Image</th>
-                        <th>Product</th>
+                        <th>Product Name</th>
                         <th>Quantity</th>
+                        <th>Price</th>
                         <th>Delete</th>
                     </tr>
 
@@ -42,8 +43,8 @@ $rs = $list-> getAll();
                     <?php while ($row = $rs->fetch()) { ?>
                     <tr>
                         <td><img src="?= $row->Img ?"></td>
-                        <td><?= $row->Type ?></td>
-                        <td>1</td>
+                        <td><?= $row->Name ?></td>
+                        <td><i class="fas fa-plus"></i>  1   <i class="fas fa-minus"></i>
                         <td><a title="delete" href="cartManager.php?action=delete&Order_ID=<?= $row->Type ?>"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                 <?php } ?>
