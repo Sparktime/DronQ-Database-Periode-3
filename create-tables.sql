@@ -42,7 +42,7 @@ CREATE TABLE `CUSTOMER` (
     `Telephone` VARCHAR(40),
     `Day_Of_Birth` DATE,
     `RegistrationDate` DATE,
-    `AdminLevel` BIT
+    `AdminLevel` BIT NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
@@ -69,12 +69,10 @@ CREATE TABLE `ORDER` (
 
 
 CREATE TABLE `CART` (
-    `Customer_ID` INT, 
-    `Name` VARCHAR(40),
-    `Type` VARCHAR(40),
-    `Quantity` INT,
-    `Price` INT
-    
+    `Customer_ID` INT,
+    `Type` VARCHAR(40)
+
+
 /*    CONSTRAINT `FK_Type`
     FOREIGN KEY(`Type`) REFERENCES `PRODUCTINFO` (`Type`),
 

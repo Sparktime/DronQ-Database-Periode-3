@@ -33,5 +33,28 @@ $login = new userController($pdo);
 $id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with customer in DB
 if(isset($id))
     header('location: customer-edit.php?Customer_ID='.$id); //redirect to edit with customer ID
+else { echo 'Invalid login credentials'; }
 
 
+//
+//echo '<script type="text/javascript">',
+//'wrongpw();',
+//'</script>'
+//;
+//}
+//?>
+<!---->
+<!---->
+<!--<script>-->
+<!--    function wrongpw() {-->
+<!--        var txt;-->
+<!--        var r = confirm("Wrong login credentials");-->
+<!--        if (r == true) {-->
+<!--            var myWindow = window.open("loginGIU.php", "_self")-->
+<!--            txt = "Reset";-->
+<!--        } else {-->
+<!--            txt = "Cancel";-->
+<!--        }-->
+<!---->
+<!--    }-->
+<!--</script>-->

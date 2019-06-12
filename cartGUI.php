@@ -7,6 +7,7 @@ include 'db.php';
 require 'cartController.php';
 
 $list = new cartController($pdo);
+//$rs = $list-> get($_SESSION['customerid']);
 $rs = $list-> getAll();
 ?>
 
@@ -31,7 +32,8 @@ $rs = $list-> getAll();
             <h1>Shopping Cart</h1>
             
         <table class="table">
-                    <tr>  
+                    <tr>
+                        <th>User ID</th>
                         <th>Image</th>
                         <th>Product Name</th>
                         <th>Quantity</th>
@@ -42,11 +44,12 @@ $rs = $list-> getAll();
                     <!-- PHP Database -->
                     <?php while ($row = $rs->fetch()) { ?>
                     <tr>
-                        <td><img src="<?= $row->Img ?>"></td>
-                        <td><?= $row->Name ?></td>
-                        <td><i class="fas fa-plus"></i>  <?= $row->Quantity ?>  <i class="fas fa-minus"></i>
-                        <td><?= $row->Price ?></td>
-                        <td><a title="delete" href="cartManager.php?action=delete&Order_ID=<?= $row->Type ?>"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><?= $row->Customer_ID ?></td>
+                        <td></td>
+                        <td><?= $row->Type ?></td>
+                        <td></td>
+                        <td></td>
+                        <td><a title="delete" href="cartManager.php?action=delete&Type=<?= $row->Type ?>"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                 <?php } ?>
         </table>

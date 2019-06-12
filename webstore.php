@@ -48,9 +48,8 @@ $rs = $webstore->getAll();
                             <p class="lead mb-0"><?= $row->Text ?></p>
                             <p></p>
                             <h3>€ <?= $row->Price ?>,-</h3>
-                            <a href = "cartManager.php?action=create" title="add a record" class="btn btn-success navbar-btn float-right">Add to cart</a>
-                                                                                                                                         
-                            <button href="product.php?Type=<?= $row->Type ?>" type="button" class="btn btn-primary float-right">+ Add to cart</button>
+                            <a href = "cartManager.php?action=create&Type=<?= $row->Type ?>" title="add a record" class="btn btn-success navbar-btn float-right">Add to cart</a>
+
                         </div>
                     </div>
                 <?php } ?>

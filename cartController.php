@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class cartController {
 
     protected $pdo;
@@ -19,23 +19,26 @@ class cartController {
     }
 
     
-    
+
+
 */
     
-  public function create(){
+  public function create($id,$type){
 
-        $sql = "INSERT INTO `CART` (Customer_ID, Name, Type, Quantity, Price)
-        VALUES ('','','','','')";
+        $sql = "INSERT INTO `CART` (Customer_ID, Type)
+        VALUES (?,?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([$id,$type]);
         checkSQL($stmt);
+
+//      header('location: cartGUI.php');
     }
 
-    public function delete($id){
+    public function delete($id,$type){
 
-        $sql = 'DELETE FROM `CART` WHERE Type = ?';
+        $sql = "DELETE FROM `CART` WHERE `Type` = ? AND `Customer_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id]);
+        $stmt->execute([$type,$id]);
         checkSQL($stmt);
 
         // return to list
@@ -68,8 +71,9 @@ class cartController {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
-
-        return $stmt->fetch(PDO::FETCH_OBJ);
+//        var_dump($id);
+        return $this->pdo->query($sql, PDO::FETCH_OBJ);
+//        return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
     public function getAll(){
@@ -77,5 +81,6 @@ class cartController {
         $sql = "SELECT * FROM `CART` ORDER BY `Customer_ID` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
+
 
 }

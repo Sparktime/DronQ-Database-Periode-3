@@ -7,17 +7,18 @@ require 'cartController.php';
     // NEW CART //
 if($_GET['action'] == 'create') {
 
+    $id = $_SESSION['customerid'];
     $create = new cartController($pdo);
-    $create->create();
+
+    $create->create($id,$_GET['Type']);
 }
 
     // DELETE CART //
 if($_GET['action'] == 'delete') {
 
-    $Serial_No = $_GET['Serial_No'];
-
+    $id = $_SESSION['customerid'];
     $delete = new cartController($pdo);
-    $delete->delete($_GET['Order_ID']);
+    $delete->delete($id,$_GET['Type']);
 }
 
     //  SAVE CART EDIT //
@@ -27,4 +28,4 @@ if($_GET['action'] == 'save'){
     $save->save($_POST['Order_ID'], $_POST);
 }
 
-//header('location: cart-list.php');
+header('location: cartGUI.php');
