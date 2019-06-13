@@ -1,4 +1,5 @@
 <?php
+
 class webstoreController
 {
 
@@ -12,7 +13,8 @@ class webstoreController
 
     }
 
-    public function get($Type){
+    public function get($Type)
+    {
 
         $sql = "SELECT * FROM `PRODUCTINFO` WHERE `Type` = ?";
         $stmt = $this->pdo->prepare($sql);
@@ -21,17 +23,27 @@ class webstoreController
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
-    public function getAll(){
 
-        $sql = "SELECT * FROM `PRODUCTINFO` ORDER BY `Type` DESC";
-        return $this->pdo->query($sql, PDO::FETCH_OBJ);
+    public function getAll($search)
+    {
+        if ($search == NULL) {
+            $sql = "SELECT * FROM `PRODUCTINFO` ORDER BY `Type` DESC";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            checkSQL($stmt);
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } else {
+
+            $sql = "SELECT * FROM `PRODUCTINFO` WHERE `Type` LIKE ? OR `Name` LIKE ? OR `Text` LIKE ? OR `Infotext` LIKE ? OR `Specs` LIKE ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(["%$search%", "%$search%", "%$search%", "%$search%", "%$search%"]);
+            checkSQL($stmt);
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 
-    public function search($search){
-        
-        $sql = "SELECT * FROM `PRODUCTINFO` WHERE 'Type' LIKE ? OR 'Name' LIKE ? OR 'Text' LIKE ? OR 'Infotext' LIKE ? OR 'Specs' LIKE ?";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([%$search%, %$search%, %$search%, %$search%, %$search%]);
-        checkSQL($stmt);
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
-    }
+
+}
+
+
+

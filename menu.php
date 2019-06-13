@@ -76,7 +76,7 @@
             <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
         </div>
         <div class="my-auto">
-                <form action="/search.php">
+                <form method="post" action="webstoreGUI.php">
                   <input type="text" placeholder="Search.." name="search">
                   <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                 </form>

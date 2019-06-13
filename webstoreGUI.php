@@ -8,7 +8,7 @@ require 'db.php';
 require 'webstoreController.php';
 
 $webstore = new webstoreController($pdo);
-$rs = $webstore->getAll();
+$rs = $webstore->getAll($_POST['search']);
 ?>
 
 
@@ -32,23 +32,24 @@ $rs = $webstore->getAll();
 
         <div class="container-fluid">
             <div class="col-xl-9 mx-auto">
-                <?php while ($row = $rs->fetch()) { ?>
-                
+                <!--                --><?php //while ($row = $rs->fetch()) { ?>
+                <?php foreach ($rs as $row) { ?>
 
                     <div class="row">
                         <div class="col-lg-6">
                             <a href="productGUI.php?Type=<?= $row->Type ?>">
-                                <img src="<?= $row->IMG ?>" width=600 height=400" >
+                                <img src="<?= $row->IMG ?>" width=600 height=400">
                             </a>
                         </div>
                         <div class="col-lg-6 my-auto showcase-text">
                             <a href="productGUI.php?Type=<?= $row->Type ?>">
                                 <h2><?= $row->Name ?></h2>
-                            </a> 
+                            </a>
                             <p class="lead mb-0"><?= $row->Text ?></p>
                             <p></p>
                             <h3>€ <?= $row->Price ?>,-</h3>
-                            <a href = "cartManager.php?action=create&Type=<?= $row->Type ?>" title="add a record" class="btn btn-success navbar-btn float-right">Add to cart</a>
+                            <a href="cartManager.php?action=create&Type=<?= $row->Type ?>" title="add a record"
+                               class="btn btn-success navbar-btn float-right">Add to cart</a>
 
                         </div>
                     </div>
