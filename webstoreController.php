@@ -26,24 +26,44 @@ class webstoreController
 
     public function getAll($search)
     {
-        if ($search == NULL) {
+
+        if (($search == NULL)) {
+
             $sql = "SELECT * FROM `PRODUCTINFO` ORDER BY `Type` DESC";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             checkSQL($stmt);
             return $stmt->fetchAll(PDO::FETCH_OBJ);
-        } else {
 
+        } else {
             $sql = "SELECT * FROM `PRODUCTINFO` WHERE `Type` LIKE ? OR `Name` LIKE ? OR `Text` LIKE ? OR `Infotext` LIKE ? OR `Specs` LIKE ?";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(["%$search%", "%$search%", "%$search%", "%$search%", "%$search%"]);
             checkSQL($stmt);
-            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            if (empty($result)) {
+
+                $sql2 = "INSERT INTO `SEARCH` (Searchterm, Entrytime) VALUES (?,CURDATE())";
+                $stmt2 = $this->pdo->prepare($sql2);
+                $stmt2->execute([$search]);
+                return $result;
+
+
+            } else {
+                return $result;
+
+            }
+
+
+
         }
     }
-
-
 }
 
 
 
+
+
+//return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+//} else {
