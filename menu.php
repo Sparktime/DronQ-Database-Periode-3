@@ -2,7 +2,7 @@
 <div class="container col-xl-9">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-            aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+            aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
@@ -74,11 +74,22 @@
             <!--            <a type="button" class="btn btn-primary" href="login.php"><i class="fas fa-user"></i> Login</a>-->
             
             <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
-
-            <a type="button" class="btn btn-primary"><i class="fas fa-search"></i></a>
         </div>
-
-
+        <div class="my-auto">
+                <form action="/search.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+        </div>
+        
+        
+        <button class="btn btn-primary" href="#google_translate_element" data-toggle="collapse"><i class="fas fa-globe"></i></button>
+        <div class="collapse" id="google_translate_element"><script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE,multilanguagePage: true}, 'google_translate_element');
+            }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
     </div>
 </div>
 
