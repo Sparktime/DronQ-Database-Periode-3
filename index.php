@@ -247,7 +247,6 @@ $_SESSION['list'] = 'index.php';
             var url = $("#emailForm").attr('action');
             $(document).on('submit', '#emailForm', function(e){
                 e.preventDefault();
-                alert("test");
                 $.ajax({
                     type: "POST",
                     url: url,
