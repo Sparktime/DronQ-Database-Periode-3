@@ -67,7 +67,7 @@ class cartController {
 
     public function get($id){
         // get record
-        $sql = "SELECT * FROM `CART` WHERE `Customer_ID` = ?";
+        $sql = "SELECT * FROM `CART` WHERE `User_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
@@ -78,7 +78,7 @@ class cartController {
 
     public function getAll(){
         // get result set
-        $sql = "SELECT * FROM `CART` ORDER BY `Customer_ID` DESC";
+        $sql = "SELECT * FROM `CART` ORDER BY `User_ID` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
 
