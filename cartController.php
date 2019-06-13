@@ -25,7 +25,7 @@ class cartController {
     
   public function create($id,$type){
 
-        $sql = "INSERT INTO `CART` (Customer_ID, Type)
+        $sql = "INSERT INTO `CART` (User_ID, Type)
         VALUES (?,?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id,$type]);
@@ -36,7 +36,7 @@ class cartController {
 
     public function delete($id,$type){
 
-        $sql = "DELETE FROM `CART` WHERE `Type` = ? AND `Customer_ID` = ?";
+        $sql = "DELETE FROM `CART` WHERE `Type` = ? AND `User_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$type,$id]);
         checkSQL($stmt);
@@ -51,10 +51,10 @@ class cartController {
     
 
     public function save($id, $data){
-        $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, Customer_ID = ? WHERE Order_ID = ?";
+        $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, User_ID = ? WHERE Order_ID = ?";
         $stmt = $this->pdo->prepare($sql);
 //var_dump($data);
-        $stmt->execute([$data['Price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['Customer_ID'], $id]);
+        $stmt->execute([$data['Price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['User_ID'], $id]);
                 checkSQL($stmt);
 //
 //         return to list

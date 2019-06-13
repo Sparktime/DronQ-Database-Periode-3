@@ -34,6 +34,6 @@ $register = new userController($pdo);
 $id = $register->register($_POST['Email'], $_POST['PasswordHash']);
 
 if(isset($id))
-    header('location: customer-edit.php?Customer_ID='.$id);
+    header('location: user-edit.php?Customer_ID='.$id);
 
 

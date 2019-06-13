@@ -1,7 +1,7 @@
 <?php
 // UTF-8 NΟ BOM
 session_start();
-$_SESSION['list'] = 'cart-list.php';
+$_SESSION['list'] = 'order-list.php';
 
 include 'db.php';
 require 'cartController.php';
@@ -24,7 +24,7 @@ $rs = $list-> getAll();
 
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <?php require 'menu.inc.php'; ?>
+            <?php require 'menu.php'; ?>
         </nav>
         
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">
@@ -43,14 +43,14 @@ $rs = $list-> getAll();
                 <th>Employee</th>
                 <th>Serial_No</th>
 
-                <th>Customer_ID</th>
+                <th>User_ID</th>
                 <th>Delete</th>
             </tr>
             
             <!-- PHP Database -->
             <?php while ($row = $rs->fetch()) { ?>
             <tr>
-                <td><a title="edit" href="cart-edit.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
+                <td><a title="edit" href="order-edit.php?Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
                 <td><?= $row->Order_ID ?></td>
                 <td><?= $row->Price ?></td>
                 <td><?= $row->OrderDate ?></td>
@@ -59,7 +59,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Employee ?></td>
                 <td><?= $row->Serial_No ?></td>
 
-                <td><?= $row->Customer_ID ?></td>
+                <td><?= $row->User_ID ?></td>
                 <td><a title="delete" href="cartManager.php?action=delete&Order_ID=<?= $row->Order_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>

@@ -17,22 +17,22 @@ require 'userController.php';
 //$stmt->execute([$email, $passwordhash]);
 //checkSQL($stmt);
 //
-//$sql = "INSERT INTO `CUSTOMER` (Email) VALUES(?)";
+//$sql = "INSERT INTO `USER` (Email) VALUES(?)";
 //$stmt = $pdo->prepare($sql);
 //$stmt->execute([$email]);
 //checkSQL($stmt);
 
-//$sql = "SELECT `Customer_ID` FROM `CUSTOMER` INNER JOIN `USER` ON `USER`.`Email` = `CUSTOMER`.`Email` WHERE `USER`.`Email` = ?";
+//$sql = "SELECT `User_ID` FROM `USER` INNER JOIN `USER` ON `USER`.`Email` = `USER`.`Email` WHERE `USER`.`Email` = ?";
 //$stmt = $pdo->prepare($sql);
 //$stmt->execute([$email]);
 //checkSQL($stmt);
-//$customerid = $stmt->fetch()[0];
+//$userid = $stmt->fetch()[0];
 //$_SESSION['email'] = $email;
 
 $login = new userController($pdo);
-$id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with customer in DB
+$id = $login->login($_POST['Email'], $_POST['PasswordHash']); //Check email/password with user in DB
 if(isset($id))
-    header('location: customer-edit.php?Customer_ID='.$id); //redirect to edit with customer ID
+    header('location: user-edit.php?User_ID='.$id); //redirect to edit with user ID
 else { echo 'Invalid login credentials'; }
 
 

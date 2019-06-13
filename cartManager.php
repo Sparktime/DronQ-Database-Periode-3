@@ -7,7 +7,7 @@ require 'cartController.php';
     // NEW CART //
 if($_GET['action'] == 'create') {
 
-    $id = $_SESSION['customerid'];
+    $id = $_SESSION['userid'];
     $create = new cartController($pdo);
 
     $create->create($id,$_GET['Type']);
@@ -16,7 +16,7 @@ if($_GET['action'] == 'create') {
     // DELETE CART //
 if($_GET['action'] == 'delete') {
 
-    $id = $_SESSION['customerid'];
+    $id = $_SESSION['userid'];
     $delete = new cartController($pdo);
     $delete->delete($id,$_GET['Type']);
 }

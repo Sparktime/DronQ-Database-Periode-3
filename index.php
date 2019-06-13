@@ -14,7 +14,7 @@ $_SESSION['list'] = 'index.php';
   <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar">
-    <?php require 'menu.inc.php';?>
+    <?php require 'menu.php';?>
     </nav>
 
 	

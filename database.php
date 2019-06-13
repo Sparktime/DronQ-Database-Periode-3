@@ -11,7 +11,7 @@
     <!-- Navbar -->
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <?php require 'menu.inc.php'; ?>
+            <?php require 'menu.php'; ?>
             </nav>
         </div>
 

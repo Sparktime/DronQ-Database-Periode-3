@@ -2,7 +2,7 @@
 session_start();
 require 'db.php';
 
-$_SESSION['list'] = 'product.php';
+$_SESSION['list'] = 'productGUI.php';
 
 
 require 'webstoreController.php';
@@ -23,7 +23,7 @@ $row = $product->get($_GET['Type']);
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-        <?php require 'menu.inc.php'; ?>
+        <?php require 'menu.php'; ?>
     </nav>
 
 

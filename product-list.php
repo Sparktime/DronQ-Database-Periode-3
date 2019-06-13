@@ -27,7 +27,7 @@ $rs = $list-> getAll();
     <body>
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <?php require 'menu.inc.php'; ?>
+            <?php require 'menu.php'; ?>
         </nav>
         
         <div class="col-xl-12 mx-auto container-fluid" style="margin-top:80px">

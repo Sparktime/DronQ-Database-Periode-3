@@ -4,7 +4,7 @@ session_start();
 require 'db.php';
 require 'userController.php';
 
-    // NEW CUSTOMER //
+    // NEW USER //
 if($_GET['action'] == 'create') {
 
     $create = new userController($pdo);
@@ -13,32 +13,32 @@ if($_GET['action'] == 'create') {
 
 }
 
-    // DELETE CUSTOMER //
+    // DELETE USER //
 if($_GET['action'] == 'delete') {
 
-    $Serial_No = $_GET['Customer_ID'];
+    $Serial_No = $_GET['User_ID'];
 
     $delete  = new userController($pdo);
-    $delete->delete($_GET['Customer_ID']);
+    $delete->delete($_GET['User_ID']);
 }
 
-    //  SAVE CUSTOMER EDIT //
+    //  SAVE USER EDIT //
 if($_GET['action'] == 'save') {
 
     $save = new userController($pdo);
-    $save->save($_POST['Customer_ID'], $_POST);
+    $save->save($_POST['User_ID'], $_POST);
 
     if (isset($_SESSION['level'])) {
-        header('location: customer-list.php');
+        header('location: user-list.php');
     } else {
         header('location: .');
 
     }
 }
 
-//header('location: customer-list.php');
+//header('location: user-list.php');
 
-    // REGISTER NEW CUSTOMER //
+    // REGISTER NEW USER //
 
 if($_GET['action'] == 'register') {
 
@@ -47,7 +47,7 @@ if($_GET['action'] == 'register') {
 
 
     if(isset($id))
-        header('location: customer-edit.php?Customer_ID='.$id);
+        header('location: user-edit.php?User_ID='.$id);
 
 }
 

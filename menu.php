@@ -24,12 +24,12 @@
 
 
             <li class="nav-item">
-                <a href="webstore.php" class="navbar-brand">Webstore</a>
+                <a href="webstoreGUI.php" class="navbar-brand">Webstore</a>
             </li>
 
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
-                <a href="customer-list.php" class="nav-link">Users</a>
+                <a href="user-list.php" class="nav-link">Users</a>
             </li>';
             }
             ?>
@@ -42,7 +42,7 @@
             ?>
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
-                <a href="cart-list.php" class="nav-link">Orders</a>
+                <a href="order-list.php" class="nav-link">Orders</a>
             </li>';
             }
             ?>
@@ -55,8 +55,8 @@
 
         
         <div class="btn-group" role="group">
-                <?php if (isset($_SESSION['customerid'])): ?>
-                <a type="button" class="btn btn-primary" href="customer-edit.php?Customer_ID=<?= $_SESSION['customerid'] ?>"><i class="fas fa-user-edit"></i></a>
+                <?php if (isset($_SESSION['userid'])): ?>
+                <a type="button" class="btn btn-primary" href="user-edit.php?User_ID=<?= $_SESSION['userid'] ?>"><i class="fas fa-user-edit"></i></a>
             <?php else:?>
             <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>
             <?php endif; ?>
@@ -66,7 +66,7 @@
 <!--            ?>-->
 
             <?php
-            if (isset($_SESSION['customerid'])) {
+            if (isset($_SESSION['userid'])) {
                 echo '<a type="button" class="btn btn-primary" href="logout.php"><i class="fas fa-user-alt-slash"></i></a>';
             }
             ?>

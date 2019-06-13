@@ -14,7 +14,7 @@ $_SESSION['list'] = 'loginGUI.php';
 <!-- Navbar -->
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <?php require 'menu.inc.php'; ?>
+        <?php require 'menu.php'; ?>
     </nav>
 </div>
 
@@ -24,7 +24,7 @@ $_SESSION['list'] = 'loginGUI.php';
         <div class="row">
             <div class="col-sm-6 mx-auto" >
                 <h1>Login</h1>
-                <form method="post" action="login-check.php">
+                <form method="post" action="loginCheck.php">
                     <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <label for="email">Email:</label>
                         <input type="text" class="form-control" placeholder="Enter Email" name="Email">

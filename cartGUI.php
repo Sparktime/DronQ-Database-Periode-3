@@ -7,7 +7,7 @@ include 'db.php';
 require 'cartController.php';
 
 $list = new cartController($pdo);
-//$rs = $list-> get($_SESSION['customerid']);
+//$rs = $list-> get($_SESSION['userid']);
 $rs = $list-> getAll();
 ?>
 
@@ -16,7 +16,7 @@ $rs = $list-> getAll();
 <html lang="nl">
 
 <head>
-    <title>Webstore</title>
+    <title>Shopping Cart</title>
     <?php require 'head.php'; ?>
 </head>
         
@@ -24,7 +24,7 @@ $rs = $list-> getAll();
         
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-        <?php require 'menu.inc.php'; ?>
+        <?php require 'menu.php'; ?>
     </nav>
 
     <div class="container-fluid">
@@ -44,7 +44,7 @@ $rs = $list-> getAll();
                     <!-- PHP Database -->
                     <?php while ($row = $rs->fetch()) { ?>
                     <tr>
-                        <td><?= $row->Customer_ID ?></td>
+                        <td><?= $row->User_ID ?></td>
                         <td></td>
                         <td><?= $row->Type ?></td>
                         <td></td>

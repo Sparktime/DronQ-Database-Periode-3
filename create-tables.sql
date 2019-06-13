@@ -3,7 +3,7 @@
 
 DROP TABLE IF EXISTS `CART`;
 DROP TABLE IF EXISTS `ORDER`; 
-DROP TABLE IF EXISTS `CUSTOMER`;
+DROP TABLE IF EXISTS `USER`;
 DROP TABLE IF EXISTS `PRODUCTINFO`;
 DROP TABLE IF EXISTS `PRODUCT`;
 
@@ -29,10 +29,10 @@ CREATE TABLE `PRODUCTINFO` (
 
 
 
-CREATE TABLE `CUSTOMER` (
-	`Customer_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`Customer_Surname` VARCHAR(40),
-	`Customer_Firstname` VARCHAR(40),
+CREATE TABLE `USER` (
+	`User_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`User_Surname` VARCHAR(40),
+	`User_Firstname` VARCHAR(40),
 	`Address` VARCHAR(40),
 	`ZipCode` VARCHAR(40),
 	`City` VARCHAR(40),
@@ -55,13 +55,13 @@ CREATE TABLE `ORDER` (
     `OrderStatus` VARCHAR(40),
     `Employee` VARCHAR(40),
     `Serial_No` INT UNIQUE,
-    `Customer_ID` INT,
+    `User_ID` INT,
 
     CONSTRAINT `FK_SerialNo`
     FOREIGN KEY(`Serial_No`) REFERENCES `PRODUCT` (`Serial_No`),
 
     CONSTRAINT `FK_CustID`
-    FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
+    FOREIGN KEY(`User_ID`) REFERENCES `USER`(`User_ID`)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
@@ -69,7 +69,7 @@ CREATE TABLE `ORDER` (
 
 
 CREATE TABLE `CART` (
-    `Customer_ID` INT,
+    `User_ID` INT,
     `Type` VARCHAR(40)
 
 
@@ -77,7 +77,7 @@ CREATE TABLE `CART` (
     FOREIGN KEY(`Type`) REFERENCES `PRODUCTINFO` (`Type`),
 
     CONSTRAINT `FK_CustID`
-    FOREIGN KEY(`Customer_ID`) REFERENCES `CUSTOMER`(`Customer_ID`)
+    FOREIGN KEY(`User_ID`) REFERENCES `USER`(`User_ID`)
     
     ON UPDATE CASCADE
     ON DELETE RESTRICT
@@ -119,11 +119,11 @@ The custom build fridge will cool the canned beverages containing 33cl and 18 ca
 
 /*
 ===========================
-CUSTOMER
+USER
 ===========================
 */
 
-INSERT INTO `CUSTOMER` (`Customer_ID`,`Customer_Surname`,`Customer_Firstname`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Day_Of_Birth`,`RegistrationDate`,`AdminLevel`) VALUES
+INSERT INTO `USER` (`User_ID`,`User_Surname`,`User_Firstname`,`Address`,`ZipCode`,`City`,`Country`,`Email`,`Telephone`,`Day_Of_Birth`,`RegistrationDate`,`AdminLevel`) VALUES
 (1,"Glenn","Gage","P.O. Box 996, 2281 Lacus. Rd.","3315 KG","Tilburg","Netherlands","molestie@eleifendCrassed.net","045 6856052","1985-11-07 14:37:33","2019-03-01 09:10:58",0),
 (2,"Morin","Francis","730-5527 Eleifend, Rd.","0260 BR","Alkmaar","Netherlands","amet@tincidunt.co.uk","089 5303231","1971-03-09 15:57:53","2019-05-23 00:28:56",0),
 (3,"Marquez","Jamalia","Ap #795-9574 Praesent Rd.","6524 IS","Terneuzen","Netherlands","lectus.sit@acturpisegestas.edu","047 4571372","1994-02-10 00:21:35","2019-05-15 07:51:42",0),
@@ -135,7 +135,7 @@ INSERT INTO `CUSTOMER` (`Customer_ID`,`Customer_Surname`,`Customer_Firstname`,`A
 (9,"Saunders","Calista","9472 Varius. Street","1396 DG","Haren","Netherlands","Vivamus.euismod.urna@Cum.org","089 1223756","1991-08-18 10:17:53","2019-11-05 06:09:04",0),
 (10,"Parrish","Rylee","P.O. Box 814, 3491 Lectus Avenue","2882 ED","Ellikom","Netherlands","montes.nascetur.ridiculus@vitae.edu","027 9908820","2003-03-23 02:29:34","2017-12-27 16:06:36",0);
 
-INSERT INTO `CUSTOMER` (`Customer_ID`, `Email`, `PasswordHash`, `AdminLevel`)  VALUES
+INSERT INTO `USER` (`User_ID`, `Email`, `PasswordHash`, `AdminLevel`)  VALUES
 (11,"admin@admin.com","$2y$10$sKOBjoYET6Gp8kyBnsHREuJGVpEmyzMpcC/nYMVc9I87zKO7mG6ZW",1);
 
 
@@ -145,7 +145,7 @@ ORDER
 ===========================
 */
 
-INSERT INTO `ORDER` (`Order_ID`,`Price`,`OrderDate`,`ShippingDate`,`OrderStatus`,`Employee`,`Serial_No`,`Customer_ID`) VALUES (1,"1699","2016-05-02 17:34:36","2017-09-18 14:16:46","Paid","Johan",83546000,1),(2,"1399","2016-10-30 20:12:02","2018-10-20 03:24:24","Ordered","Wouter",83546001,2),(3,"1699","2011-03-10 15:16:19","2011-04-16 23:51:43","Delivered","Wouter",83546002,3),(4,"1399","2013-12-09 13:34:47","2013-05-17 03:34:33","Shipped","Kevin",83546003,4),(5,"1699","2011-09-30 12:24:26","2010-07-01 10:41:23","Ordered","Kevin",83546004,5),(6,"1699","2017-09-13 02:20:18","2011-03-14 21:04:24","Delivered","Jos",83546005,6),(7,"1399","2015-02-08 16:17:15","2013-10-04 22:52:11","Paid","Jos",83546006,7),(8,"1699","2013-07-26 19:19:49","2018-01-24 20:46:53","Paid","Kevin",83546007,8),(9,"1399","2015-07-29 00:31:55","2018-04-03 04:58:31","Delivered","Wouter",83546008,9),(10,"1699","2015-11-13 14:11:03","2017-08-13 19:57:51","Paid","Kevin",83546009,10);
+INSERT INTO `ORDER` (`Order_ID`,`Price`,`OrderDate`,`ShippingDate`,`OrderStatus`,`Employee`,`Serial_No`,`User_ID`) VALUES (1,"1699","2016-05-02 17:34:36","2017-09-18 14:16:46","Paid","Johan",83546000,1),(2,"1399","2016-10-30 20:12:02","2018-10-20 03:24:24","Ordered","Wouter",83546001,2),(3,"1699","2011-03-10 15:16:19","2011-04-16 23:51:43","Delivered","Wouter",83546002,3),(4,"1399","2013-12-09 13:34:47","2013-05-17 03:34:33","Shipped","Kevin",83546003,4),(5,"1699","2011-09-30 12:24:26","2010-07-01 10:41:23","Ordered","Kevin",83546004,5),(6,"1699","2017-09-13 02:20:18","2011-03-14 21:04:24","Delivered","Jos",83546005,6),(7,"1399","2015-02-08 16:17:15","2013-10-04 22:52:11","Paid","Jos",83546006,7),(8,"1699","2013-07-26 19:19:49","2018-01-24 20:46:53","Paid","Kevin",83546007,8),(9,"1399","2015-07-29 00:31:55","2018-04-03 04:58:31","Delivered","Wouter",83546008,9),(10,"1699","2015-11-13 14:11:03","2017-08-13 19:57:51","Paid","Kevin",83546009,10);
 
 /*
 ===========================
@@ -153,6 +153,6 @@ CART
 ===========================
 */
 
-INSERT INTO `CART` (`Customer_ID`,`Name`,`Type`,`Quantity`,`Price`) VALUES
+INSERT INTO `CART` (`User_ID`,`Name`,`Type`,`Quantity`,`Price`) VALUES
 (1,"DronqQ Set","DronqSetV1",1,1399),(4,"DronQ Drone","DronqDroneV1",2,999);
 

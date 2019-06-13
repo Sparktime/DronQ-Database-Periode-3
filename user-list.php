@@ -1,7 +1,7 @@
 <?php
 // UTF-8 NΟ BOM 
 session_start();
-$_SESSION['list'] = 'customer-list.php';
+$_SESSION['list'] = 'user-list.php';
 
 include 'db.php';
 require 'userController.php';
@@ -10,7 +10,7 @@ $list = new userController($pdo);
 $rs = $list-> getAll();
 
 // get result set
-//$sql = "SELECT * FROM `CUSTOMER` ORDER BY `Customer_ID` DESC";
+//$sql = "SELECT * FROM `USER` ORDER BY `User_ID` DESC";
 //$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 ?>
 
@@ -26,7 +26,7 @@ $rs = $list-> getAll();
     <body>
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <?php require 'menu.inc.php'; ?>
+            <?php require 'menu.php'; ?>
         </nav>
         
 <div class="col-xl-12 mx-auto container-fluid">
@@ -37,7 +37,7 @@ $rs = $list-> getAll();
         <table class="table">
             <tr>
                 <th>Edit</th>
-                <th>Customer ID</th>
+                <th>User ID</th>
                 <th>Surname</th>
                 <th>Firstname </th>
                 <th>Address</th>
@@ -55,10 +55,10 @@ $rs = $list-> getAll();
             <!-- PHP Database -->
             <?php while ($row = $rs->fetch()) { ?>
             <tr>
-                <td><a title="edit" href="customer-edit.php?Customer_ID=<?= $row->Customer_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
-                <td><?= $row->Customer_ID ?></td>
-                <td><?= $row->Customer_Surname ?></td>
-                <td><?= $row->Customer_Firstname ?></td>
+                <td><a title="edit" href="user-edit.php?User_ID=<?= $row->User_ID ?>"><i class="fas fa-pencil-alt"></i></a></td>
+                <td><?= $row->User_ID ?></td>
+                <td><?= $row->User_Surname ?></td>
+                <td><?= $row->User_Firstname ?></td>
                 <td><?= $row->Address ?></td>
                 <td><?= $row->ZipCode ?></td>
                 <td><?= $row->City ?></td>
@@ -68,7 +68,7 @@ $rs = $list-> getAll();
                 <td><?= $row->Day_Of_Birth ?></td>
                 <td><?= $row->RegistrationDate ?></td>
                 <td><?= $row->AdminLevel ?></td>
-                <td><a title="delete" href="userManager.php?action=delete&Customer_ID=<?= $row->Customer_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="userManager.php?action=delete&User_ID=<?= $row->User_ID ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             

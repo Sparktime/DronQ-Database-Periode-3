@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$_SESSION['list'] = 'webstore.php';
+$_SESSION['list'] = 'webstoreGUI.php';
 
 
 require 'db.php';
@@ -24,7 +24,7 @@ $rs = $webstore->getAll();
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-        <?php require 'menu.inc.php'; ?>
+        <?php require 'menu.php'; ?>
     </nav>
 
     <!-- Images & Text -->
@@ -37,12 +37,12 @@ $rs = $webstore->getAll();
 
                     <div class="row">
                         <div class="col-lg-6">
-                            <a href="product.php?Type=<?= $row->Type ?>">
+                            <a href="productGUI.php?Type=<?= $row->Type ?>">
                                 <img src="<?= $row->IMG ?>" width=600 height=400" >
                             </a>
                         </div>
                         <div class="col-lg-6 my-auto showcase-text">
-                            <a href="product.php?Type=<?= $row->Type ?>">
+                            <a href="productGUI.php?Type=<?= $row->Type ?>">
                                 <h2><?= $row->Name ?></h2>
                             </a> 
                             <p class="lead mb-0"><?= $row->Text ?></p>

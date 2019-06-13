@@ -2,7 +2,7 @@
 require 'db.php';
 require 'cartController.php';
 
-$_SESSION['list'] = 'cart-edit.php';
+$_SESSION['list'] = 'order-edit.php';
 
 
 
@@ -31,7 +31,7 @@ $row = $order->get($_GET['Order_ID']);
                             <a href= "index.php" class="nav-link navbar-brand" >Home</a>
                         </li>
                     	<li class="nav-item">		     
-				            <a href= "cart-list.php" class="nav-link" >Orders</a>
+				            <a href= "order-list.php" class="nav-link" >Orders</a>
                         </li>  
                         <li class="nav-item">
 				            <button title="save" type="submit" class="btn btn-primary navbar-btn" >Save</button>
@@ -83,8 +83,8 @@ $row = $order->get($_GET['Order_ID']);
                     </label>
                 </div>
                     <div class="row">
-                    <label>Customer ID
-                        <input type="text" name="Customer_ID" value="<?= $row->Customer_ID ?>">
+                    <label>User ID
+                        <input type="text" name="User_ID" value="<?= $row->User_ID ?>">
                     </label>
                 </div>
             </div>

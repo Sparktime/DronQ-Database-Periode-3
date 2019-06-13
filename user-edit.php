@@ -1,23 +1,23 @@
 <?php
 session_start();
-if ($_SESSION['customerid'] != $_GET['Customer_ID'] && $_SESSION['level'] != admin)
-    header('location: customer-edit.php?Customer_ID=' . $_SESSION['customerid']);
-$_SESSION['list'] = 'customer-edit.php';
+if ($_SESSION['userid'] != $_GET['User_ID'] && $_SESSION['level'] != admin)
+    header('location: user-edit.php?User_ID=' . $_SESSION['userid']);
+$_SESSION['list'] = 'user-edit.php';
 require 'db.php';
 require 'userController.php';
 // get url parameter
-//$Customer_ID = $_GET['Customer_ID'];
+//$User_ID = $_GET['User_ID'];
 //
 //// get record
-//$sql = "SELECT * FROM `CUSTOMER` WHERE `Customer_ID` = ?";
+//$sql = "SELECT * FROM `USER` WHERE `User_ID` = ?";
 //$stmt = $pdo->prepare($sql);
-//$stmt->execute([$Customer_ID]);
+//$stmt->execute([$User_ID]);
 //checkSQL($stmt);
 //
 //$row = $stmt->fetch(PDO::FETCH_OBJ);
 
 $user = new userController($pdo);
-$row = $user->get($_GET['Customer_ID']);
+$row = $user->get($_GET['User_ID']);
 
 ?>
 
@@ -56,19 +56,19 @@ $row = $user->get($_GET['Customer_ID']);
     <div class="container" style="margin-top:80px">
         <div class="row">
             <div class="col-xl-10">
-                <h1>Edit Customer</h1>
+                <h1>Edit User</h1>
                 <table class="table">
                     <tr>
-                        <th>Customer ID</th>
-                        <th><input type="text" readonly name="Customer ID" value="<?= $row->Customer_ID ?>"></th>
+                        <th>User ID</th>
+                        <th><input type="text" readonly name="User ID" value="<?= $row->User_ID ?>"></th>
                     </tr>
                     <tr>
-                        <th>Customer Surname</th>
-                        <th><input type="text" name="Customer Surname" value="<?= $row->Customer_Surname ?>"></th>
+                        <th>Surname</th>
+                        <th><input type="text" name="User Surname" value="<?= $row->User_Surname ?>"></th>
                     </tr>
                     <tr>
-                        <th>Customer Firstname</th>
-                        <th><input type="text" name="Customer Firstname" value="<?= $row->Customer_Firstname ?>"></th>
+                        <th>Firstname</th>
+                        <th><input type="text" name="User Firstname" value="<?= $row->User_Firstname ?>"></th>
                     </tr>
                     <tr>
                         <th>Address</th>

@@ -17,7 +17,7 @@ class userController
     //Registreer function,
     public function register($email, $password)
     {
-        $sql = "SELECT `Email` FROM `CUSTOMER` WHERE `Email` = ?";
+        $sql = "SELECT `Email` FROM `USER` WHERE `Email` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$email]);
         checkSQL($stmt);
@@ -25,13 +25,13 @@ class userController
             /// password wordt gehashed
             $password = password_hash($password, PASSWORD_DEFAULT);
             //gebruiker wordt opgeslagen in de DB
-            $sql2 = "INSERT INTO `CUSTOMER` (Email, PasswordHash) VALUES(?,?)";
+            $sql2 = "INSERT INTO `USER` (Email, PasswordHash) VALUES(?,?)";
             $stmt2 = $this->pdo->prepare($sql2);
             $stmt2->execute([$email, $password]);
 
             checkSQL($stmt);
             $session = $this->pdo->lastInsertId();
-            $_SESSION['customerid'] = $session;
+            $_SESSION['userid'] = $session;
             return $session;
         }
     }
@@ -40,7 +40,7 @@ class userController
     {
 
 
-        $sql = "SELECT `PasswordHash` FROM `CUSTOMER` WHERE `Email` = ?";
+        $sql = "SELECT `PasswordHash` FROM `USER` WHERE `Email` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$email]);
         checkSQL($stmt);
@@ -49,16 +49,16 @@ class userController
 
         // Check Password/Email combination
         if (password_verify($password, $test)) {
-            $sql2 = "SELECT `Customer_ID`  FROM `CUSTOMER` WHERE `Email` = ?";
+            $sql2 = "SELECT `User_ID`  FROM `USER` WHERE `Email` = ?";
             $stmt2 = $this->pdo->prepare($sql2);
             $stmt2->execute([$email]);
             checkSQL($stmt2);
-            $customerid = $stmt2->fetch(PDO::FETCH_OBJ);
-            $id = $customerid->Customer_ID;
+            $userid = $stmt2->fetch(PDO::FETCH_OBJ);
+            $id = $userid->User_ID;
 
 // Check AdminLevel
 
-            $sql3 = "SELECT `AdminLevel`  FROM `CUSTOMER` WHERE `Email` = ?";
+            $sql3 = "SELECT `AdminLevel`  FROM `USER` WHERE `Email` = ?";
             $stmt3 = $this->pdo->prepare($sql3);
             $stmt3->execute([$email]);
             checkSQL($stmt3);
@@ -66,16 +66,16 @@ class userController
             $level = $adminlevel->AdminLevel;
 
             // Set Session ID
-            $_SESSION['customerid'] = $id;
+            $_SESSION['userid'] = $id;
 
 
             if ($level == 1) {
 
                 $_SESSION['level'] = admin;
 
-                header('location: customer-list.php');
+                header('location: user-list.php');
             } else {
-                header('location: webstore.php');
+                header('location: webstoreGUI.php');
             }
         }
 
@@ -84,19 +84,19 @@ class userController
     public function create()
     {
 
-        $sql = "INSERT INTO `CUSTOMER` (Customer_Surname, Customer_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate, Adminlevel) VALUES('','','','','','','','','',CURDATE(),0)";
+        $sql = "INSERT INTO `USER` (User_Surname, User_Firstname, Address, ZipCode, Country, Email, PasswordHash, Telephone, Day_Of_Birth, RegistrationDate, Adminlevel) VALUES('','','','','','','','','',CURDATE(),0)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         checkSQL($stmt);
         $newid = $this->pdo->lastInsertId();
-        header('location: customer-edit.php?Customer_ID=' . $newid);
+        header('location: user-edit.php?User_ID=' . $newid);
 
     }
 
     public function delete($id)
     {
 
-        $sql = 'DELETE FROM `CUSTOMER` WHERE Customer_ID = ?';
+        $sql = 'DELETE FROM `USER` WHERE User_ID = ?';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
@@ -111,9 +111,9 @@ class userController
 
     public function save($id, $data)
     {
-        $sql = "UPDATE `CUSTOMER` SET Customer_Surname = ?, Customer_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ?, AdminLevel = ? WHERE Customer_ID = ?";
+        $sql = "UPDATE `USER` SET User_Surname = ?, User_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ?, AdminLevel = ? WHERE User_ID = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$data['Customer_Surname'], $data['Customer_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $data['AdminLevel'], $id]);
+        $stmt->execute([$data['User_Surname'], $data['User_Firstname'], $data['Address'], $data['ZipCode'], $data['City'], $data['Country'], $data['Email'], $data['Telephone'], $data['Day_Of_Birth'], $data['RegistrationDate'], $data['AdminLevel'], $id]);
         checkSQL($stmt);
 
         // return to list
@@ -127,7 +127,7 @@ class userController
     public function get($id)
     {
 
-        $sql = "SELECT * FROM `CUSTOMER` WHERE `Customer_ID` = ?";
+        $sql = "SELECT * FROM `USER` WHERE `User_ID` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
@@ -139,7 +139,7 @@ class userController
     public function getAll()
     {
         // get result set
-        $sql = "SELECT * FROM `CUSTOMER` ORDER BY `Customer_ID` DESC";
+        $sql = "SELECT * FROM `USER` ORDER BY `User_ID` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);
     }
 }
