@@ -46,6 +46,12 @@
             </li>';
             }
             ?>
+            <?php if (isset($_SESSION['level']) == 1) {
+                echo '<li class="nav-item">
+                <a href="search-list.php" class="nav-link">Search</a>
+            </li>';
+            }
+            ?>
             <li class="nav-item">
                 <button type="button"
                         class="btn btn-danger navbar-btn" onclick="resetfunction()">Reset Database

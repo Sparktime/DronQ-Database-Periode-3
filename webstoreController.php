@@ -55,9 +55,29 @@ class webstoreController
             }
 
 
-
         }
     }
+
+    public function getSearch()
+    {
+        $sql = "SELECT * FROM `SEARCH` ORDER BY `Entrytime` DESC";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        checkSQL($stmt);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+    }
+
+    public function deleteSearch($search)
+    {
+        $sql = 'DELETE FROM `SEARCH` WHERE Searchterm = ?';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$search]);
+        checkSQL($stmt);
+
+    }
+
 }
 
 
