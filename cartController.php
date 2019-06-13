@@ -71,9 +71,7 @@ class cartController {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         checkSQL($stmt);
-//        var_dump($id);
-        return $this->pdo->query($sql, PDO::FETCH_OBJ);
-//        return $stmt->fetch(PDO::FETCH_OBJ);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function getAll(){
