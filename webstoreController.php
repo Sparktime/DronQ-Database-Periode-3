@@ -71,7 +71,8 @@ class webstoreController
 
     public function deleteSearch($search)
     {
-        $sql = 'DELETE FROM `SEARCH` WHERE Searchterm = ?';
+
+        $sql = "DELETE FROM `SEARCH` WHERE `Searchterm` = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$search]);
         checkSQL($stmt);

@@ -6,7 +6,7 @@ require 'webstoreController.php';
 
 
 
-    // DELETE PRODUCT //
+    // DELETE SEARCHTERM//
 if($_GET['action'] == 'deleteSearch') {
 
 

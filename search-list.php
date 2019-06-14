@@ -47,7 +47,7 @@ $rs = $list-> getSearch();
 
                 <td><?= $row->Searchterm ?></td>
                 <td><?= $row->Entrytime ?></td>
-                <td><a title="delete" href="webstoreController.php?action=deleteSearch&Searchterm=<?= $row->Searchterm ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="webstoreManager.php?action=deleteSearch&Searchterm=<?= $row->Searchterm ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             

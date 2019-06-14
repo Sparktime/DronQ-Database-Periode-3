@@ -15,8 +15,8 @@ if($_GET['action'] == 'create') {
 
     // DELETE USER //
 if($_GET['action'] == 'delete') {
-
-    $Serial_No = $_GET['User_ID'];
+//
+//    $Serial_No = $_GET['User_ID'];
 
     $delete  = new userController($pdo);
     $delete->delete($_GET['User_ID']);
