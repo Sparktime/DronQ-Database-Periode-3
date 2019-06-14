@@ -2,17 +2,13 @@
 
 class webstoreController
 {
-
     protected $pdo;
 
     public function __construct($db)
     {
-
         $this->pdo = $db;
-
-
     }
-
+// get all product info rows
     public function get($Type)
     {
 
@@ -23,7 +19,7 @@ class webstoreController
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
-
+// get all search results order by type
     public function getAll($search)
     {
 
@@ -57,7 +53,7 @@ class webstoreController
 
         }
     }
-
+//  get search results order by time off search descending
     public function getSearch()
     {
         $sql = "SELECT * FROM `SEARCH` ORDER BY `Entrytime` DESC";
@@ -68,7 +64,7 @@ class webstoreController
 
 
     }
-
+// delete search result
     public function deleteSearch($search)
     {
 

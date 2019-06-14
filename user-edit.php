@@ -1,20 +1,14 @@
 <?php
+
 session_start();
+// user id has equal the user id in the url unless level is admin
 if ($_SESSION['userid'] != $_GET['User_ID'] && $_SESSION['level'] != admin)
     header('location: user-edit.php?User_ID=' . $_SESSION['userid']);
+
+
 $_SESSION['list'] = 'user-edit.php';
 require 'db.php';
 require 'userController.php';
-// get url parameter
-//$User_ID = $_GET['User_ID'];
-//
-//// get record
-//$sql = "SELECT * FROM `USER` WHERE `User_ID` = ?";
-//$stmt = $pdo->prepare($sql);
-//$stmt->execute([$User_ID]);
-//checkSQL($stmt);
-//
-//$row = $stmt->fetch(PDO::FETCH_OBJ);
 
 $user = new userController($pdo);
 $row = $user->get($_GET['User_ID']);
@@ -24,7 +18,7 @@ $row = $user->get($_GET['User_ID']);
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
 <head>
     <title>List</title>
     <?php require 'head.php'; ?>

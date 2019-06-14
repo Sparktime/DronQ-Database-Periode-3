@@ -27,5 +27,5 @@ if($_GET['action'] == 'save'){
     $save = new cartController($pdo);
     $save->save($_POST['Order_ID'], $_POST);
 }
-
+    // redirect to the cartGui //
 header('location: cartGUI.php');

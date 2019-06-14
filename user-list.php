@@ -1,5 +1,5 @@
 <?php
-// UTF-8 NΟ BOM 
+
 session_start();
 $_SESSION['list'] = 'user-list.php';
 
@@ -9,22 +9,19 @@ require 'userController.php';
 $list = new userController($pdo);
 $rs = $list-> getAll();
 
-// get result set
-//$sql = "SELECT * FROM `USER` ORDER BY `User_ID` DESC";
-//$rs = $pdo->query($sql, PDO::FETCH_OBJ);
 ?>
 
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
     <head>
         <title>List</title>
         <?php require 'head.php'; ?>
     </head>
 
     <body>
-        
+    <!-- menu off each page based off menu.php   -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <?php require 'menu.php'; ?>
         </nav>

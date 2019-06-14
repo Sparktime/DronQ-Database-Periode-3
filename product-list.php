@@ -18,14 +18,14 @@ $rs = $list-> getAll();
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
 <head>
     <title>List</title>
     <?php require 'head.php'; ?>
 </head>
 
 <body>
-
+<!-- menu off each page based off menu.php   -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <?php require 'menu.php'; ?>
 </nav>

@@ -9,6 +9,7 @@ $mailaddress = $_POST['email'];
 $title = $_POST['subject'];
 $text = $_POST['message'];
 
+// send values to admin and user
 $to = $mailaddress.";wbplaats@avans.nl";
 $subject = "Question of DronQ visitor";
 $message = "\r\n Name: " . $name .
@@ -17,17 +18,9 @@ $message = "\r\n Email: " . $mailaddress .
 $message = "\r\n Subject: " . $title .
 $message = "\r\n Message: " . $text;
 
-
+//  from address in mail
 $from = "DronQ@thuis.io";
 $headers = "From:" . $from;
 
-
-if(mail($to,$subject,$message, $headers))
-{
-    echo '{"message" : "Bericht succesvol verstuurd!"}';
-}
-else {
-    echo '{"message" : "Bericht NIET verstuurd!"}';
-}
 
 ?>

@@ -6,6 +6,7 @@ $_SESSION['list'] = 'loginGUI.php';
 <!doctype html>
 <html lang="nl">
 <head>
+<!--  header on each page based on head.php-->
         <title>loginGUI</title>
         <?php require 'head.php'; ?>
 </head>

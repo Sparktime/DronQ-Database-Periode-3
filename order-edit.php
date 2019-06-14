@@ -13,7 +13,7 @@ $row = $order->get($_GET['Order_ID']);
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
 <head>
     <title>List</title>
     <?php require 'head.php'; ?>
@@ -41,7 +41,7 @@ $row = $order->get($_GET['Order_ID']);
             </ul>
         </div>
     </nav>
-
+<!-- order list showing per row-->
     <div class="container" style="margin-top:80px">
         <div class="row">
             <div class="col-xl-10">

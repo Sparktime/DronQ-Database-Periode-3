@@ -13,7 +13,7 @@ class cartController
 
     }
 
-
+    //creates cart based on user id
     public function create($id, $type)
     {
 
@@ -22,10 +22,9 @@ class cartController
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id, $type]);
         checkSQL($stmt);
-
-//      header('location: cartGUI.php');
     }
 
+    //deletes item to cart based on user id
     public function delete($id, $type)
     {
 
@@ -42,7 +41,7 @@ class cartController
         }
     }
 
-
+    // saves item to cart based on user id
     public function save($id, $data)
     {
         $sql = "UPDATE `ORDER` SET Price = ?, OrderDate = ?, ShippingDate = ?, OrderStatus = ?, Employee = ?, Serial_No = ?, User_ID = ? WHERE Order_ID = ?";
@@ -51,7 +50,7 @@ class cartController
         $stmt->execute([$data['Price'], $data['OrderDate'], $data['ShippingDate'], $data['OrderStatus'], $data['Employee'], $data['Serial_No'], $data['User_ID'], $id]);
         checkSQL($stmt);
 
-//         return to list
+    // return to list
         if (isset($_SESSION['list'])) {
             header('location: ' . $_SESSION['list']);
         } else {

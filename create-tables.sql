@@ -1,5 +1,5 @@
-﻿-- UTF8 WITH BOM
-
+﻿
+-- drops tables when already in the database
 DROP TABLE IF EXISTS `SEARCH`;
 DROP TABLE IF EXISTS `CART`;
 DROP TABLE IF EXISTS `ORDER`;
@@ -7,9 +7,7 @@ DROP TABLE IF EXISTS `USER`;
 DROP TABLE IF EXISTS `PRODUCTINFO`;
 DROP TABLE IF EXISTS `PRODUCT`;
 
-
-
-
+-- creates the table product
 CREATE TABLE `PRODUCT`
 (
   `Type`               VARCHAR(40),
@@ -18,7 +16,7 @@ CREATE TABLE `PRODUCT`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = UTF8;
 
-
+-- creates the table product info
 CREATE TABLE `PRODUCTINFO`
 (
   `Name`     VARCHAR(40),
@@ -32,7 +30,7 @@ CREATE TABLE `PRODUCTINFO`
   DEFAULT CHARSET = UTF8;
 
 
-
+-- creates the table user
 CREATE TABLE `USER`
 (
   `User_ID`          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -51,8 +49,7 @@ CREATE TABLE `USER`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = UTF8;
 
-
-
+-- creates the table order
 CREATE TABLE `ORDER`
 (
   `Order_ID`     INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -74,8 +71,7 @@ CREATE TABLE `ORDER`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = UTF8;
 
-
-
+-- creates the table Cart
 CREATE TABLE `CART`
 (
   `User_ID` INT,
@@ -94,7 +90,7 @@ CREATE TABLE `CART`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = UTF8;
 
-
+-- creates the table Search
 CREATE TABLE `SEARCH`
 (
   `Searchterm` VARCHAR(255),

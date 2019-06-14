@@ -104,10 +104,8 @@
                           </div>
                           <div class="form-group">
                               <textarea class="form-control" id="text" name="message" placeholder="Message" ></textarea>
-                                                 
                           </div>
                           <button type="submit" class="btn btn-block btn-lg btn-primary">Submit Form</button>
-<!--        <button type="button"  id="submit" name="submit" value="Send" class="btn btn-primary pull-right" data-dismiss="modal" aria-label="Close">Submit Form</button>-->
         </form>
     </div>
 </div>
@@ -120,7 +118,7 @@
   </div>
 </div>
 
-<!-- footer pop up -->
+<!-- contact form pop up -->
 <div class="modal fade" id="contactform" tabindex="-1" role="dialog" aria-labelledby="contactmodal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -300,7 +298,7 @@
 
 
 <script>
-    // <!--Function for email, when you click on "submit" you can stay on the same page.-->
+    // <!--Function for sending the email for the contact for and return to page with pop up.-->
 
     $(document).ready(function(){
         var url = $("#contactForm").attr('action');

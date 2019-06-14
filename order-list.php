@@ -16,12 +16,12 @@ $rs = $list-> getAll();
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
     <head>
         <title>List</title>
         <?php require 'head.php'; ?>
     </head>
-
+<!-- menu off each page based off menu.php   -->
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <?php require 'menu.php'; ?>

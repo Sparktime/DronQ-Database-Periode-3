@@ -14,7 +14,7 @@ class userController
 
     }
 
-    //Registreer function,
+    //register function,
     public function register($email, $password)
     {
         $sql = "SELECT `Email` FROM `USER` WHERE `Email` = ?";
@@ -35,7 +35,7 @@ class userController
             return $session;
         }
     }
-
+//  login function
     public function login($email, $password)
     {
 
@@ -80,7 +80,7 @@ class userController
         }
 
     }
-
+// create a new user
     public function create()
     {
 
@@ -92,7 +92,7 @@ class userController
         header('location: user-edit.php?User_ID=' . $newid);
 
     }
-
+//  delete user
     public function delete($id)
     {
 
@@ -108,7 +108,7 @@ class userController
             header('location: .');
         }
     }
-
+// save changes off a user
     public function save($id, $data)
     {
         $sql = "UPDATE `USER` SET User_Surname = ?, User_Firstname = ?, Address = ?, ZipCode = ?, City = ?, Country = ?, Email = ?, Telephone = ?, Day_Of_Birth = ?, RegistrationDate = ?, AdminLevel = ? WHERE User_ID = ?";

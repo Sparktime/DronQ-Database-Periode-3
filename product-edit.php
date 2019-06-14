@@ -12,7 +12,7 @@ $row = $product->get($_GET['Serial_No']);
 
 <!DOCTYPE html>
 <html lang="nl">
-
+<!-- header off each page based off head.php   -->
     <head>
         <meta charset="UTF-8">
         <title>List</title>

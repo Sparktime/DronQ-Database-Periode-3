@@ -9,16 +9,15 @@ class productController {
         $this->pdo = $db;
 
     }
-
+// create new row in the product list
     public function create(){
 
         $sql = "INSERT INTO `PRODUCT` (Type, Manufacturing_Date) VALUES('',CURDATE())";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-//        $stmt->debugDumpParams();
         checkSQL($stmt);
     }
-
+// delete product row from the list
     public function delete($Serial_No){
         $sql = 'DELETE FROM `PRODUCT` WHERE Serial_No = ?';
         $stmt = $this->pdo->prepare($sql);
@@ -32,7 +31,7 @@ class productController {
             header('location: .');
         }
     }
-
+// save 1 product to the list
     public function save($Serial_No, $data){
         $sql = "UPDATE `PRODUCT` SET Type = ?, Manufacturing_Date = ? WHERE Serial_No = ?";
         $stmt = $this->pdo->prepare($sql);
@@ -46,7 +45,7 @@ class productController {
             header('location: .');
         }
     }
-
+// get one product based on Serial_no
     public function get($Serial_No){
         $sql = "SELECT * FROM `PRODUCT` WHERE `Serial_No` = ?";
         $stmt = $this->pdo->prepare($sql);
@@ -55,7 +54,7 @@ class productController {
 
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
-
+// list off all the product
     public function getAll(){
         $sql = "SELECT * FROM `PRODUCT` ORDER BY `Serial_No` DESC";
         return $this->pdo->query($sql, PDO::FETCH_OBJ);

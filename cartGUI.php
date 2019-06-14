@@ -1,5 +1,5 @@
 <?php
-// UTF-8 NΟ BOM
+
 session_start();
 $_SESSION['list'] = 'cartGUI.php';
 
@@ -8,7 +8,7 @@ require 'cartController.php';
 
 $list = new cartController($pdo);
 $rs = $list->get($_SESSION['userid']);
-//$rs = $list-> getAll();
+
 ?>
 
 
@@ -41,7 +41,7 @@ $rs = $list->get($_SESSION['userid']);
                     <th>Delete</th>
                 </tr>
 
-                <!-- PHP Database -->
+                <!-- PHP cart input -->
                 <?php foreach ($rs as $row) { ?>
                     <tr>
                         <td><?= $row->User_ID ?></td>
@@ -60,6 +60,8 @@ $rs = $list->get($_SESSION['userid']);
             </div>
         </div>
     </div>
+
+    <!-- inputs the footer to the cartGui  -->
     <?php require 'footer.php'; ?>
 
     <!-- Bootstrap core JavaScript -->

@@ -5,12 +5,13 @@ $_SESSION['list'] = 'index.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- header off each page based off head.php   -->
   <head>
     <title>DronQ Industries</title>
     <?php require 'head.php'; ?>
   </head>
 
+<!-- menu that is at top off every page build in menu.php   -->
   <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar">
@@ -238,6 +239,7 @@ $_SESSION['list'] = 'index.php';
     <script src="js/scroll.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.js"></script>
 
+<!--  footer for every page based on footer.php  -->
     <?php require 'footer.php';?>
 
     <script>

@@ -26,14 +26,13 @@
             <li class="nav-item">
                 <a href="webstoreGUI.php" class="navbar-brand">Webstore</a>
             </li>
-
+<!-- checking the user level to allow access -->
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
                 <a href="user-list.php" class="nav-link">Users</a>
             </li>';
             }
             ?>
-
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
                 <a href="product-list.php" class="nav-link">Products</a>
@@ -72,18 +71,14 @@
             <?php else:?>
             <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>
             <?php endif; ?>
-<!--            else {-->
-<!--                echo '<a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>'-->
-<!--            }-->
-<!--            ?>-->
+
 
             <?php
             if (isset($_SESSION['userid'])) {
                 echo '<a type="button" class="btn btn-primary" href="logout.php"><i class="fas fa-user-alt-slash"></i></a>';
             }
             ?>
-            <!--            <a type="button" class="btn btn-primary" href="loginGUI.php"><i class="fas fa-user"></i></a>-->
-            <!--            <a type="button" class="btn btn-primary" href="login.php"><i class="fas fa-user"></i> Login</a>-->
+
             
             <a type="button" class="btn btn-primary" href="cartGUI.php"><i class="fas fa-shopping-cart"></i></a>
         </div>

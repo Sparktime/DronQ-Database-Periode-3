@@ -14,7 +14,7 @@ $rs = $webstore->getAll($_POST['search']);
 
 <DOCTYPE html>
     <html lang="nl">
-
+    <!-- header off each page based off head.php   -->
     <head>
         <title>Webstore</title>
         <?php require 'head.php'; ?>
@@ -57,7 +57,7 @@ $rs = $webstore->getAll($_POST['search']);
             </div>
         </div>
     </section>
-
+    <!-- footer off each page based off footer.php   -->
     <?php require 'footer.php'; ?>
 
     <!-- Bootstrap core JavaScript -->

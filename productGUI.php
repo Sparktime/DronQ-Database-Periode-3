@@ -13,7 +13,7 @@ $row = $product->get($_GET['Type']);
 
 <DOCTYPE html>
     <html lang="nl">
-
+    <!-- header off each page based off head.php   -->
     <head>
         <title>Product</title>
         <?php require 'head.php'; ?>
@@ -52,7 +52,7 @@ $row = $product->get($_GET['Type']);
         </div>
     </section>
 
-
+    <!-- footer off each page based off footer.php   -->
     <?php require 'footer.php'; ?>
 
     <!-- Bootstrap core JavaScript -->
