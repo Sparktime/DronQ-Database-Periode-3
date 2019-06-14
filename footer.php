@@ -84,10 +84,11 @@
         </button>
       </div>
       <div class="modal-body">
+          <p class="lead"> Thank you for send your question to DronQ Industries</p>
           <div class="container">
               <div >
-                  <div class="form-area">  
-                      <form role="form">
+                  <div class="form-area">
+                      <form action="insert.php" method="post" id="contactForm">
                           <br style="clear:both">
                           <div class="form-group">
                               <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
@@ -102,11 +103,11 @@
                               <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                           </div>
                           <div class="form-group">
-                              <textarea class="form-control" type="textarea" id="message" placeholder="Message" ></textarea>
+                              <textarea class="form-control" id="text" name="message" placeholder="Message" ></textarea>
                                                  
                           </div>
-            
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" data-dismiss="modal" aria-label="Close">Submit Form</button>
+                          <button type="submit" class="btn btn-block btn-lg btn-primary">Submit Form</button>
+<!--        <button type="button"  id="submit" name="submit" value="Send" class="btn btn-primary pull-right" data-dismiss="modal" aria-label="Close">Submit Form</button>-->
         </form>
     </div>
 </div>
@@ -118,7 +119,28 @@
     </div>
   </div>
 </div>
-	
+
+<!-- footer pop up -->
+<div class="modal fade" id="contactform" tabindex="-1" role="dialog" aria-labelledby="contactmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactmodal">Thank you for the message!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">Your question has been send to the support desk. </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Licence Agreement -->
 <div class="modal fade" id="agreement" tabindex="-1" role="dialog" aria-labelledby="agreementmodal" aria-hidden="true">
 	  <div class="modal-dialog modal-lg" role="document">
@@ -275,3 +297,26 @@
     </div>
   </div>
 </div>
+
+
+<script>
+    // <!--Function for email, when you click on "submit" you can stay on the same page.-->
+
+    $(document).ready(function(){
+        var url = $("#contactForm").attr('action');
+        $(document).on('submit', '#contactForm', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#contactForm").serialize(),
+                complete: function(data, textstatus){
+                    $('#contactform').modal('toggle');
+                    var jsonString = JSON.parse(data.responseText);
+                    console.log(jsonString.message);
+                },
+                dataType: 'json',
+            });
+        });
+    });
+</script>
