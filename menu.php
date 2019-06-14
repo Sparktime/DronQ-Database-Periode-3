@@ -42,13 +42,19 @@
             ?>
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
+                <a href="productinfo-list.php" class="nav-link">Product Info</a>
+            </li>';
+            }
+            ?>
+            <?php if (isset($_SESSION['level']) == 1) {
+                echo '<li class="nav-item">
                 <a href="order-list.php" class="nav-link">Orders</a>
             </li>';
             }
             ?>
             <?php if (isset($_SESSION['level']) == 1) {
                 echo '<li class="nav-item">
-                <a href="search-list.php" class="nav-link">Search</a>
+                <a href="search-list.php" class="nav-link">Search History</a>
             </li>';
             }
             ?>
