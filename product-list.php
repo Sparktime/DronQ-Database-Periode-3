@@ -56,22 +56,65 @@ $rs = $pdo->query($sql, PDO::FETCH_OBJ);
                 <td><?= $row->Specs ?></td>
                 <td><?= $row->Price ?></td>
                 <td><img src="<?= $row->IMG ?>" width="60" height="40"></td>
-                <td><a title="delete" href="productManager.php?action=delete&Serial_No=<?= $row->Serial_No ?>"><i class="fas fa-trash-alt"></i></a></td>
+                <td><a title="delete" href="productManager.php?action=delete&Type=<?= $row->Type ?>"><i class="fas fa-trash-alt"></i></a></td>
              </tr>
             <?php } ?>
             
         </table>
         </div>
         
-        <div class="col-lg-11">
-                
-            <form action='<?php echo $_SERVER["PHP_SELF"];?>' methode='post' enctype="multipart/form-data">
+        <div class="row">
+           <div class="col-lg-6">
+                <form action='<?php echo $_SERVER["PHP_SELF"];?>' method='post' enctype="multipart/form-data">
                 Import .CSV : <input type='file' name='sel_file' size='20'>
-            <input class="btn btn-primary" type='submit' name='submit' value='submit'>
-            </form>
+                <input class="btn btn-primary" type='submit' name='submit' value='submit'>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <form action="uploadimg.php" method="POST" ectype="multipart/form-data">
+                <input type="file" name="file">
+                <button class="btn btn-primary" type="submit" name="submit">Upload IMG</button>
+                </form>
+            </div>
         </div>
+
+<?php
+
+// Upload IMG
+/*
+if (isset($_POST['submit'])) {
+    $file = $_FILES['file'];
+    $fileName = $_FILES['file']['name'];
+    $fileTmpName = $_FILES['file']['tmp_name'];
+    $fileSize = $_FILES['file']['size'];
+    $fileError = $_FILES['file']['error'];
+    $fileType = $_FILES['file']['type'];
         
-<?php   if(isset($_POST['submit']))
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+
+    $allowed = array('jpg', 'jpeg', 'png');
+    
+    if (in_array($fileActualExt, $allowed)) {
+        if ($fileError === 0) {
+            if ($fileSize < 10000) {
+                $fileNameNew = uniqid('', true).".".$fileActualExt;
+                $fileDestionation = 'img/'$fileNameNew;
+                move_uploaded_file($fileTmpName,$fileDestiantion);
+                header("Location: product-list.php?uploadsuccess";)
+            } else {echo "File too big";}
+        } else {echo "File upload error";}
+    } else {echo "Wrong file type";}
+}
+
+*/
+?>
+        
+<?php
+//Upload CSV
+
+/*
+if(isset($_POST['submit']))
         {
             $fname = $_FILES['sel_file']['name'];
             echo 'upload file name: '.$fname.' ';
@@ -96,6 +139,7 @@ $rs = $pdo->query($sql, PDO::FETCH_OBJ);
                 echo "Invalid File";
             }
 }
+*/
 ?>
     </body>
 
