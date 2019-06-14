@@ -231,17 +231,17 @@ $_SESSION['list'] = 'index.php';
         </div>
     </section>
     
-    <?php require 'footer.php';?>
-
-   	<!-- Bootstrap core JavaScript -->
+    	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="js/scroll.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.js"></script>
 
+    <?php require 'footer.php';?>
+
     <script>
-<!--Function for email, when you click on "submit" you can stay on the same page.-->
+// <!--Function for email, when you click on "submit" you can stay on the same page.-->
 
         $(document).ready(function(){
             var url = $("#emailForm").attr('action');
@@ -260,6 +260,8 @@ $_SESSION['list'] = 'index.php';
                 });
             });
         });
+
+
     </script>
 
 </body>
