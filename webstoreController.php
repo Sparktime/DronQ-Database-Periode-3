@@ -8,6 +8,7 @@ class webstoreController
     {
         $this->pdo = $db;
     }
+
 // get all product info rows
     public function get($Type)
     {
@@ -53,6 +54,7 @@ class webstoreController
 
         }
     }
+
 //  get search results order by time off search descending
     public function getSearch()
     {
@@ -64,6 +66,7 @@ class webstoreController
 
 
     }
+
 // delete search result
     public function deleteSearch($search)
     {
