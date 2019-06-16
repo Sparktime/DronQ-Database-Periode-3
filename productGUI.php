@@ -40,7 +40,8 @@ $row = $product->get($_GET['Type']);
                         <p class="lead mb-0"><?= $row->Text ?></p>
                         <h3>Info</h3>
                         <p class="lead mb-0"><?= $row->Infotext ?></p>
-                        <p><?= $row->Price ?></p>
+                        <p></p>
+                        <h3>€ <?= $row->Price ?>,-</h3>
                         <a href="cartManager.php?action=create&Type=<?= $row->Type ?>" title="add a record"
                            class="btn btn-success navbar-btn float-right">Add to cart</a>
 

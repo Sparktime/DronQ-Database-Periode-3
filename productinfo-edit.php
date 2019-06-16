@@ -15,14 +15,14 @@ $row = $product->get($_GET['Type']);
 <!-- header off each page based off head.php   -->
     <head>
         <meta charset="UTF-8">
-        <title>List</title>
+        <title>Product info</title>
         <?php require 'head.php'; ?>
     </head>
 
     <body>
 
     <!-- Navigation -->
-    <form method="post" action="webstoreManager.php?action=save">
+    <form method="post" action="productInfoManagßer.php?action=save">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container col-xl-12">
                 <ul class="navbar-nav">
@@ -30,7 +30,7 @@ $row = $product->get($_GET['Type']);
                         <a href= "index.php" class="nav-link navbar-brand" >Home</a>
                     </li>
                     <li class="nav-item">		     
-				        <a href= "product-list.php" class="nav-link" >Product</a>
+				        <a href= "productInfo-list.php" class="nav-link" >Product</a>
                     </li>  
                     <li class="nav-item">
 				        <button title="save" type="submit" class="btn btn-primary navbar-btn" >Save</button>
@@ -46,7 +46,7 @@ $row = $product->get($_GET['Type']);
       <div class="container" style="margin-top:80px">
         <div class="row">
 			<div class="col-xl-10">
-                <h1>Edit Product</h1>
+                <h1>Edit Product Info</h1>
                    <div class="row">
                     <label>Name
                         <input type="text" readonly name="Name" value="<?= $row->Name ?>">
@@ -60,19 +60,19 @@ $row = $product->get($_GET['Type']);
 
                 <div class="row">
                     <label>Text
-                        <input type="text" name="Text" value="<?= $row->Text ?>">
+                        <textarea rows="10" cols="75" name="Text"><?= $row->Text ?></textarea>
                     </label>
                 </div>
 
                 <div class="row">
                     <label>Infotext
-                        <input type="text" name="Infotext" value="<?= $row->Infotext ?>">
+                        <textarea rows="10" cols="75" name="Infotext" ><?= $row->Infotext ?></textarea>
                     </label>
                 </div>
 
                 <div class="row">
                     <label>Specs
-                        <input type="text" name="Specs" value="<?= $row->Specs ?>">
+                        <textarea rows="10" cols="75" name="Specs" ><?= $row->Specs ?></textarea>
                     </label>
                 </div>
 
@@ -82,12 +82,27 @@ $row = $product->get($_GET['Type']);
                     </label>
                 </div>
 
+                <div class="row">
+                    <img src="<?= $row->IMG ?>" alt="<?= $row->Name ?>" />
+                </div>
+
+                <div class="col-lg-6">
+
+                </div>
                 
             </div>
         </div>
     </div>
 
     </form>
+
+    <div class="container">
+        <form action="productInfoManager.php?action=imageUpload" method="post" enctype="multipart/form-data">
+            <input type="text" name="Type" value="<?= $row->Type ?>" hidden>
+            <input type="file" name="image_file">
+            <button class="btn btn-primary" type="submit" name="submit">Upload IMG</button>
+        </form>
+    </div>
     </body>
 
 </html>
