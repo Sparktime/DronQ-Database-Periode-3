@@ -40,7 +40,7 @@ class productInfoControllerTest extends \PHPUnit\Framework\TestCase
     public function testProcessCsv() {
 
         $path = "pict.csv";
-        $csvString = "Frikandel,Drosdfgne,Frikandelledrone,heeeeleleeeemooooiieee dron,Super swag Super snelle,999,/uploads/img/bier.jpg";
+        $csvString = "TextA,TextB,TextC,TextD,TextE,999";
         file_put_contents($path, $csvString);
 
         $expectedSql = "INSERT INTO `PRODUCTINFO` (`Name`, `Type`, `Text`, `Infotext`, `Specs`, `Price`)
@@ -53,7 +53,7 @@ class productInfoControllerTest extends \PHPUnit\Framework\TestCase
 
         $pdoStatement->expects($this->once())
             ->method('execute')
-            ->with($this->equalTo(["Frikandel","Drosdfgne","Frikandelledrone","heeeeleleeeemooooiieee dron","Super swag Super snelle",999]));
+            ->with($this->equalTo(["TextA","TextB","TextC","TextD","TextE",999]));
 
         $pdo = $this->getMockBuilder(PDO::class)
             ->disableOriginalConstructor()
