@@ -13,6 +13,14 @@ class productInfoController
     }
 
 
+    public function create(){
+
+        $sql = "INSERT INTO `PRODUCTINFO` (`Name`, `Type`, `Text`, `Infotext`,`Specs`,`Price`) VALUES('','','','','','')";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        checkSQL($stmt);
+    }
+
     public function save($type) {
         $sql = "UPDATE `PRODUCTINFO` SET `Name` = ?, `Text` = ?, `Infotext` = ?, `Specs` =?, `Price` = ?
                 WHERE `Type` = $type";
